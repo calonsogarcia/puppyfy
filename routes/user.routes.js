@@ -1,6 +1,6 @@
 const router = require("express").Router();
-const UserModel = require('../models/User.model')
-
+const UserModel = require('../models/User.model');
+const bcrypt = require('bcryptjs') ;
 
 
 router.get("/signup", (req, res, next) => {
@@ -52,7 +52,8 @@ router.post("/signup", (req, res, next) => {
             UserModel.create({ username, email, password: hashedPassword })
             .then(() => {
                 res.redirect('/user/login')
-            }).catch((err) => {
+            })
+            .catch((err) => {
                 next(err)
             });
         }
@@ -62,5 +63,11 @@ router.post("/signup", (req, res, next) => {
     });
     
 });
+
+router.get("/login", (req, res, next) => {
+    res.render("user/login.hbs");
+});
+
+
 
 module.exports = router;
