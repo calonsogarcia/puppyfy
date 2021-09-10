@@ -5,4 +5,8 @@ router.get("/", (req, res, next) => {
   res.render("index");
 });
 
+router.get("/home", (req, res, next) => {
+  res.render("home.hbs");
+});
+
 module.exports = router;
