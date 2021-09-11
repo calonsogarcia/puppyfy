@@ -9,14 +9,14 @@ const serviceSchema = new Schema({
     name: String,
     dateOfBirth: Number,
     sex: String,
-    Breed: String,
-    Color: String,
-    FamilyOptions: String,
+    breed: String,
+    colour: String,
+    familyOptions: String,
     image: String
 
 });
 
-petType, name, breed, dateOfBirth, sex, colour, familyOptions
+
 
 const Pet = model("Pet", petSchema);
 

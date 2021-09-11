@@ -16,9 +16,34 @@ router.get("/create", (req, res, next) => {
     res.render("adopt/adoption-form");
 })
 router.post("/create", (req, res, next) => {
-
-
-})
+    const {
+        petType,
+        breed,
+        dateOfBirth,
+        sex,
+        colour,
+        familyOptions,
+        image,
+        name
+    } = req.body
+    Pet.create({
+            petType,
+            breed,
+            dateOfBirth,
+            sex,
+            colour,
+            familyOptions,
+            image,
+            name
+        })
+        .then((pet) => {
+            console.log("pet created", pet);
+            res.redirect("/");
+        })
+        .catch((err) => {
+            console.log(err);
+        });
+});
 
 
 module.exports = router;
