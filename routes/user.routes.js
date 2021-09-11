@@ -68,9 +68,6 @@ router.get("/login", (req, res, next) => {
     res.render("user/login.hbs");
 });
 
-router.get("/profile", (req, res, next) => {
-    res.render("user/profile.hbs");
-});
 
 router.post('/login', (req, res, next) => {
     //requuire the info needed for login
@@ -82,7 +79,6 @@ router.post('/login', (req, res, next) => {
         return;
       }
 
-
     // check if user exists
     UserModel.findOne({username})
     .then((user) => {
@@ -92,7 +88,12 @@ router.post('/login', (req, res, next) => {
            const checkPassword = bcrypt.compareSync(password, user.password)
 
            if(checkPassword){
-               res.redirect('/user/profile')
+               //create the active session
+               req.session.loggedInUser = user
+
+               req.app.locals.isLoggedIn = true,
+
+               res.redirect('/profile')
 
            } else {
                res.render('user/login.hbs', { errorMessage: "The password is wrong, please, try again!" })
@@ -105,13 +106,8 @@ router.post('/login', (req, res, next) => {
     .catch((err) => {
         next(err)
     });
-
-
 })
 
-router.get("/profile/edition", (req, res, next) => {
-    res.render("user/profile-edition.hbs");
-});
 
 
 module.exports = router;

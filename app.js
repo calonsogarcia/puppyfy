@@ -31,6 +31,9 @@ app.use("/", index);
 const userRoutes = require("./routes/user.routes");
 app.use("/user", userRoutes)
 
+const profileRoutes = require("./routes/profile.routes");
+app.use("/profile", profileRoutes)
+
 const servicesRoutes = require("./routes/services.routes");
 app.use("/services", servicesRoutes)
 
