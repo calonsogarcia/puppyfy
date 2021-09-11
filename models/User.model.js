@@ -12,7 +12,11 @@ const userSchema = new Schema({
         unique: true,
     },
     fullName: String,
-    //email: String,
+    email: {
+        type: String,
+        unique: true,
+    },
+
     dateOfBirth: Number,
     sex: String,
     address: String,
