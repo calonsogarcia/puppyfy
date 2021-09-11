@@ -68,6 +68,50 @@ router.get("/login", (req, res, next) => {
     res.render("user/login.hbs");
 });
 
+router.get("/profile", (req, res, next) => {
+    res.render("user/profile.hbs");
+});
+
+router.post('/login', (req, res, next) => {
+    //requuire the info needed for login
+    const {username, password} = req.body
+
+    // check that everything is fulfill
+    if (!username || !password) {
+        res.render('user/login.hbs', { errorMessage: "Please, fill out all fields" })
+        return;
+      }
+
+
+    // check if user exists
+    UserModel.findOne({username})
+    .then((user) => {
+        if(user){
+
+           // check if the password exists
+           const checkPassword = bcrypt.compareSync(password, user.password)
+
+           if(checkPassword){
+               res.redirect('/user/profile')
+
+           } else {
+               res.render('user/login.hbs', { errorMessage: "The password is wrong, please, try again!" })
+           }
+        } else {
+            //if user doesn't exist send them back to login
+            res.render('user/login.hbs', { errorMessage: "The user doesn't exist, please signup to login"})
+        } 
+    })
+    .catch((err) => {
+        next(err)
+    });
+
+
+    // Athenticate the user
+
+
+
+})
 
 
 module.exports = router;
