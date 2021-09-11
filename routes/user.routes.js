@@ -107,11 +107,11 @@ router.post('/login', (req, res, next) => {
     });
 
 
-    // Athenticate the user
-
-
-
 })
+
+router.get("/profile/edition", (req, res, next) => {
+    res.render("user/profile-edition.hbs");
+});
 
 
 module.exports = router;
