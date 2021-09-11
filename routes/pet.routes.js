@@ -13,7 +13,7 @@ router.get("/otherpets", (req, res, next) => {
     res.render("adopt/otherslist.hbs");
 });
 router.get("/create", (req, res, next) => {
-    res.render("adopt/adoption-form");
+    res.render("adopt/give-form");
 })
 router.post("/create", (req, res, next) => {
     const {
