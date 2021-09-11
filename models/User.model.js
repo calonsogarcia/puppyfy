@@ -12,7 +12,11 @@ const userSchema = new Schema({
         unique: true,
     },
     fullName: String,
-    //email: String,
+    email: {
+        type: String,
+        unique: true,
+        required: true
+    },
     dateOfBirth: Number,
     sex: String,
     address: String,
@@ -23,9 +27,7 @@ const userSchema = new Schema({
         children: Number,
         otherPets: Boolean,
     },
-
     comments: String,
-
 });
 
 const User = model("User", userSchema);

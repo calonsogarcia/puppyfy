@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const UserModel = require('../models/User.model');
+const UserModel = require('../models/user.model');
 const bcrypt = require('bcryptjs') ;
 
 
@@ -29,7 +29,7 @@ router.post("/signup", (req, res, next) => {
     }
 
     //check password
-    const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{ 8, }$/;
+    const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/;
     if (!passwordRegex.test(password)) {
         res.render("user/signup.hbs", {
             errorMessage: "Strong password needs at least 8 characters long, uppercase and lowercase",
