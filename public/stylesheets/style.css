@@ -1,12 +1,35 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    padding: 50px;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
-  color: #00b7ff;
+    color: #00b7ff;
 }
 
 h1 {
-  color: 15px;
+    color: 15px;
+}
+
+.home {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    font-size: 40px;
+    background-image: url("../images/Huella puppyfy.png");
+    background-size: 600px;
+    height: 300px;
+    margin: 30px;
+}
+
+.homebutton {
+    padding: 50px;
+    margin-left: 30px;
+    align-items: center;
+}
+
+.homebuttonfour {
+    padding: 50px;
+    margin: 10px;
+    background-image: url("../images/veterinary.jpeg");
 }
