@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const UserModel = require('../models/user.model');
-const bcrypt = require('bcryptjs') ;
+const bcrypt = require('bcryptjs');
 
 
 router.get("/signup", (req, res, next) => {
@@ -40,28 +40,28 @@ router.post("/signup", (req, res, next) => {
     // check if email exists
     // if exists render the page and the error message
     // if not, create the user + encrypt the password
-    UserModel.findOne({email})
-    .then((user) => {
-        if(user){
-            res.render("user/signup.hbs", {errorMessage: 'The email already exists. Please write another one or Login'})
-        } else {
-            const salt = bcrypt.genSaltSync(12);
-            const hashedPassword = bcrypt.hashSync(password, salt)
-            // console.log(hashedPassword)
+    UserModel.findOne({ email })
+        .then((user) => {
+            if (user) {
+                res.render("user/signup.hbs", { errorMessage: 'The email already exists. Please write another one or Login' })
+            } else {
+                const salt = bcrypt.genSaltSync(12);
+                const hashedPassword = bcrypt.hashSync(password, salt)
+                    // console.log(hashedPassword)
 
-            UserModel.create({ username, email, password: hashedPassword })
-            .then(() => {
-                res.redirect('/user/login')
-            })
-            .catch((err) => {
-                next(err)
-            });
-        }
-    })
-    .catch((err) => {
-        next(err)
-    });
-    
+                UserModel.create({ username, email, password: hashedPassword })
+                    .then(() => {
+                        res.redirect('/user/login')
+                    })
+                    .catch((err) => {
+                        next(err)
+                    });
+            }
+        })
+        .catch((err) => {
+            next(err)
+        });
+
 });
 
 router.get("/login", (req, res, next) => {
