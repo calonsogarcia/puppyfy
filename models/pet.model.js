@@ -1,10 +1,10 @@
 const { Schema, model } = require("mongoose");
-const serviceSchema = new Schema({
+const petSchema = new Schema({
 
     petType: {
         type: String,
         required: true,
-        enum: ['Dogs', 'Cats', "Others"],
+        enum: ['Dogs', 'Cats', "Others"]
     },
     name: String,
     dateOfBirth: Number,

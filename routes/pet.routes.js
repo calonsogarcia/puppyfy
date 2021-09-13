@@ -12,8 +12,11 @@ router.get("/cats", (req, res, next) => {
 router.get("/otherpets", (req, res, next) => {
     res.render("adopt/otherslist.hbs");
 });
+router.get("/adoption-form", (req, res, next) => {
+    res.render("adopt/adoption-form.hbs");
+})
 router.get("/create", (req, res, next) => {
-    res.render("adopt/give-form");
+    res.render("adopt/give-form.hbs");
 })
 router.post("/create", (req, res, next) => {
     const {
@@ -38,10 +41,10 @@ router.post("/create", (req, res, next) => {
         })
         .then((pet) => {
             console.log("pet created", pet);
-            res.redirect("/");
+            res.redirect("/adopt/give-form");
         })
         .catch((err) => {
-            console.log(err);
+            next(err);
         });
 });
 
