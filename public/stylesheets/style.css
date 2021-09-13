@@ -120,7 +120,7 @@
           padding: 40px;
       }
       
-      .adopt {
+      #adopt {
           display: flex;
           flex-flow: row wrap;
       }

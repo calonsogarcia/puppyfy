@@ -1,7 +1,6 @@
 const { Schema, model } = require("mongoose");
 
 const veterinarySchema = new Schema({
-
     type: String,
     name: String,
     adress: String,

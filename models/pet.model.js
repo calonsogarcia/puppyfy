@@ -1,23 +1,26 @@
 const { Schema, model } = require("mongoose");
-const petSchema = new Schema({
 
-    petType: {
+
+const puppySchema = new Schema({
+    puppyType: {
         type: String,
         required: true,
-        enum: ['Dogs', 'Cats', "Others"]
+        enum: ['Dog', 'Cat', "Other"]
     },
     name: String,
     dateOfBirth: Number,
-    sex: String,
+    sex: {
+        type: String,
+        required: true,
+        enum: ['Felame', 'Male']
+    },
     breed: String,
     colour: String,
     familyOptions: String,
     image: String
-
 });
 
 
+const Puppy = model("Puppy", puppySchema);
 
-const Pet = model("Pet", petSchema);
-
-module.exports = Pet;
+module.exports = Puppy;

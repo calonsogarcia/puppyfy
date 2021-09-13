@@ -1,32 +1,46 @@
+
 <h2>Give in adoption Form</h2>
-
  
+
 <div class="give">
-  <form action="/adopt/give-form" method="post" class="give-form">
+  <form action="/adopt/give-in-adoption" method="post" class="give-form">
 
-    <h3>Data</h3>
+    <h3>Please, tell us more about the puppy you want to give in adoption!</h3>
 
-    <label for="petType">Pet Type</label>
-    <input type="text" name="petType"/>
+    <label for="puppyType">Type of animal</label>
+    <input type="text" placeholder="Is it a dog? a cat? Any other type of animal?" autocomplete="off"/>
+  {{!--  <select name="puppyType" >
+      {{#each allPuppies}}
+        <option value="{{this.puppyType}}">{{this.enum.puppyType}}</option>
+      {{/each}}
+    </select>--}}
 
     <label for="name">Name</label>
-    <input type="text" name="name"/>
+    <input type="text" name="name" autocomplete="off"/>
 
     <label for="date-of-birth">Date of Birth</label>
-    <input type="date" name="date-of-birth" />
+    <input type="date" name="date-of-birth" autocomplete="off"/>
 
     <label for="sex">Sex</label>
-    <input type="text" name="sex"/>
-
+    <input type="text" placeholder="Is it female or male?" autocomplete="off" />
+    {{!-- <select name="puppySex" >
+      {{#each allPuppies}}
+        <option value="{{this.sex}}">{{this.sex}}</option>
+      {{/each}}
+    </select> --}}
+   
     <label for="breed">Breed</label>
-    <input type="text" name="breed"/>
+    <input type="text" name="breed"autocomplete="off"/>
 
     <label for="colour">Colour</label>
-    <input type="text" name="colour" />
+    <input type="text" name="colour" autocomplete="off"/>
 
     <label for="family-options">Family Options</label>
-    <input type="text" name="family-options"/>
-    <br>
+    <input type="text" name="family-options" autocomplete="off" placeholder="Has the puppy any brother/sister? Would be ok if they are adopted toghether?"/>
     
+    <label for="comments">Is there anything else you want to tell us about the puppy?</label>
+    <textarea name="description" cols="30" rows="5" autocomplete="off" placeholder="Something you have to know about the dog/cat/bunny..."></textarea>
+    <br>
+
     <button type="submit">Submit</button>
     </div>
