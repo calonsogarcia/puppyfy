@@ -35,7 +35,7 @@ const profileRoutes = require("./routes/profile.routes");
 app.use("/profile", profileRoutes)
 
 const servicesRoutes = require("./routes/services.routes");
-app.use("/services", servicesRoutes)
+app.use("/puppy-care", servicesRoutes)
 
 const puppiesRoutes = require("./routes/puppies.routes");
 app.use("/adopt", puppiesRoutes)
