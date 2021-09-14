@@ -40,8 +40,6 @@ app.use("/puppy-care", servicesRoutes)
 const puppiesRoutes = require("./routes/puppies.routes");
 app.use("/adopt", puppiesRoutes)
 
-const veterinaryRoutes = require("./routes/veterinary.routes");
-app.use("/veterinary", veterinaryRoutes)
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require("./error-handling")(app);
