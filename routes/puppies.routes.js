@@ -11,6 +11,7 @@ router.get("/dogs", (req, res, next) => {
 });
 
 router.get("/cats", (req, res, next) => {
+    PuppyModel.find({puppyType: "Cat"})
     res.render("adopt/catList.hbs");
 });
 
@@ -23,6 +24,7 @@ router.get("/adoption-form", (req, res, next) => {
     res.render("adopt/adoption-form.hbs");
 })
 
+// Revisar
 router.post('/adoption-form', (req, res, next) => {
     const {username, puppyName, puppyType, puppyDateOfBirth, puppySex, puppyBreed, puppyColour, puppyFamilyOptions, comments} = req.body
     AdoptionModel.create({username, puppyName, puppyType, puppyDateOfBirth, puppySex, puppyBreed, puppyColour, puppyFamilyOptions, comments})
@@ -30,7 +32,6 @@ router.post('/adoption-form', (req, res, next) => {
         res.redirect('/adopt/adoption-form/print')
     })
     .catch((err) => {next(err)});
-    
 })
 
 router.get("/adoption-form/print", (req, res, next) => {
@@ -53,6 +54,11 @@ router.post("/give-in-adoption", (req, res, next) => {
             next(err);
         });
 });
+
+// create /give-in-adoption/print
+
+//Update and Delete
+
 
 
 module.exports = router;
