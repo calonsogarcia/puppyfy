@@ -1,61 +1,67 @@
+<h2>Adoption Form</h2>
 
-  <h2>Adoption Form</h2>
+<form action="/adopt/adoption-form" method="post" class="adoption-form">
 
- 
-<div class="adoption-form">
-  <form action="/adopt/adoption-form" method="post">
+  <label for="username">Hi!! Please, tell us your username</label>
+  <input type="text" name="username" autocomplete="off" />
 
-    <h3>Data</h3>
+  <h3>Now we need to know which of our wonderful puppies got your heart!</h3>
 
-    <label for="name">Name</label>
-    <input type="text" name="name"/>
+  <label for="name">Name:</label>
+  <input type="text" name="name" autocomplete="off" />
+  <br />
 
-    <label for="date-of-birth">Date of Birth</label>
-    <input type="date" name="date-of-birth"/>
+  <label for="puppyType">Type of animal</label>
+  <input
+    type="text"
+    placeholder="Is it a dog? a cat? Any other type of animal?"
+  />
+  {{!-- <select name="puppyType" >
+      {{#each allPuppies}}
+        <option value="{{this.puppyType}}">{{this.enum.puppyType}}</option>
+      {{/each}}
+    </select> --}}
+  <br />
 
-    <label for="sex">Sex</label>
-    <input type="text" name="sex"/>
+  <label for="date-of-birth">Date of Birth:</label>
+  <input type="date" name="date-of-birth" autocomplete="off" />
+  <br />
 
-    <label for="breed">Breed</label>
-    <input type="text" name="breed"/>
+  <label for="sex">Sex:</label>
+  {{! <input type="text" name="sex" placeholder="Is it female or male?"> }}
+  <select name="sex">
+    <option value="Female">Female</option>
+    <option value="Male">Male</option>
+  </select>
+  <br />
 
-    <label for="color">Colour</label>
-    <input type="text" name="color"/>
+  <label for="breed">Breed:</label>
+  <input type="text" name="breed" autocomplete="off" />
+  <br />
 
-    <label for="family-options">Family Options</label>
-    <input type="text" name="family-options"/>
+  <label for="colour">Colour:</label>
+  <input type="text" name="colour" autocomplete="off" />
+  <br />
 
-    
-    <button type="submit">Submitt</button>
+  <label for="family-options">Family Options:</label>
+  <input
+    type="text"
+    name="family-options"
+    autocomplete="off"
+    placeholder="Would you like to adopt the puppy brother/sister?"
+  />
+  <br />
 
-<h3>Personal Data</h3>
+  <label for="comments">If you want to tell us something else about you or the
+    puppy you want to adopt, we will be glad to know it!</label>
+  <textarea name="description" cols="30" rows="5" autocomplete="off"></textarea>
+  <br />
 
+  <button type="submit">Let's go!!</button>
 
-    <label for="fullname">Full Name</label>
-    <input type="text" name="fullname"/>
+</form>
 
-    <label for="date-of-birth">Date of Birth</label>
-    <input type="date" name="date-of-birth"/>
-
-    <label for="sex">Sex</label>
-    <input type="text" name="sex"/>
-
-    <label for="job">Job</label>
-    <input type="text" name="job"/>
-
-    <label for="family-structure">Family Structure</label>
-    <input type="text" name="family-structure"/>
-
-    <label for="adress">Adress</label>
-    <input type="text" name="adress">
-
-    <label for="phone">Phone</label>
-    <input type="text" name="phone">
-    
-  </form>
-
-</div>
-
-
-
-    
+<p>
+  <strong>Important!</strong>
+  if you want to submit the adoption form, you need to signup and fulfill all
+  the personal information in the profile.</p>

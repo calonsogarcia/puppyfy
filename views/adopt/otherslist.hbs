@@ -1,18 +1,22 @@
-<h2>Other Pets</h2>
+
+
 <div class="otherlist">  
-<img src="../images/adoptothers.jpeg" alt ="dog">  
 
-<h3>Pettype:</h3>
-<h3>Name:</h3>
-<h3>Breed:</h3>
-<h3>Date of Birth:</h>
-<h3>Sex:</h3>
-<h3>Colour:</h3>
-<h3>Family options:</h3>
+<h2>Here are our lovely puppies from any other class</h2>
 
+    {{#each allOthers}}
+    <img src={{!--Photo URL--}} alt ="puppy photo">  
 
+    <p>Type of animal:</p>
+    <p>Name: {{this.name}}</p>
+    <p>Breed: {{this.breed}}</p>
+    <p>Date of Birth {{this.dateOfBirth}}</p>
+    <p>Sex: {{this.sex}}</p>
+    <p>Colour: {{this.colour}}</p>
+    <p>Family options: {{this.familyOptions}}</p>
 
-<button type="">
-<a href="adopt/adoption-form">Adoption Form</a>
-</button>
+    {{/each}}
+
+<a href="adoption-form">Adoption Form</a>
+
 </div>
