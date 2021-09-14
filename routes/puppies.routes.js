@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const Puppy = require('../models/Puppy.model');
+const Adoption = require('../models/Adoption.model');
 
 router.get("/", (req, res, next) => {
     res.render("adopt/list.hbs");
@@ -23,8 +24,17 @@ router.get("/adoption-form", (req, res, next) => {
 })
 
 router.post('/adoption-form', (req, res, next) => {
-     // not sure how to do the post
+    const {username, puppyName, puppyType, puppyDateOfBirth, puppySex, puppyBreed, puppyColour, puppyFamilyOptions, comments} = req.body
+    Adoption.create({username, puppyName, puppyType, puppyDateOfBirth, puppySex, puppyBreed, puppyColour, puppyFamilyOptions, comments})
+    .then((form) => {
+        res.redirect('/adopt/adoption-form/print')
+    })
+    .catch((err) => {next(err)});
+    
+})
 
+router.get("/adoption-form/print", (req, res, next) => {
+    res.render("adopt/adoption-print.hbs");
 })
 
 

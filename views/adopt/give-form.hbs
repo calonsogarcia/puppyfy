@@ -8,7 +8,7 @@
     <h3>Please, tell us more about the puppy you want to give in adoption!</h3>
 
     <label for="puppyType">Type of animal</label>
-    <input type="text" placeholder="Is it a dog? a cat? Any other type of animal?" autocomplete="off"/>
+    <input type="text" placeholder="Is it a dog? a cat? Any other type of animal?" autocomplete="off" required/>
   {{!--  <select name="puppyType" >
       {{#each allPuppies}}
         <option value="{{this.puppyType}}">{{this.enum.puppyType}}</option>
@@ -19,7 +19,7 @@
     <input type="text" name="name" autocomplete="off"/>
 
     <label for="date-of-birth">Date of Birth</label>
-    <input type="date" name="date-of-birth" autocomplete="off"/>
+    <input type="date" name="date-of-birth" autocomplete="off" required/>
 
     <label for="sex">Sex</label>
     <input type="text" placeholder="Is it female or male?" autocomplete="off" />
