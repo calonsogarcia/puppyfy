@@ -6,6 +6,10 @@ const petSchema = new Schema({
         required: true,
         enum: ['Dogs', 'Cats', "Others"]
     },
+    creator: {
+        type: Schema.Types.ObjectId,
+        ref: "User"
+    },
     name: String,
     dateOfBirth: Number,
     sex: String,

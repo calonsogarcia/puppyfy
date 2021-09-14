@@ -2,31 +2,34 @@
 
  
 <div class="give">
-  <form action="/adopt/give-form" method="post" class="give-form">
+  <form action="/adopt/create" method="post" class="give-form">
 
     <h3>Data</h3>
 
-    <label for="petType">Pet Type</label>
+    <label for="petType">Pet Type:</label>
     <input type="text" name="petType"/>
 
-    <label for="name">Name</label>
+    <label for="name">Name:</label>
     <input type="text" name="name"/>
 
-    <label for="date-of-birth">Date of Birth</label>
-    <input type="date" name="date-of-birth" />
+    <label for="date-of-birth">Date of Birth:</label>
+    <input type="date" name="date-of-birth"/>
 
-    <label for="sex">Sex</label>
+    <label for="sex">Sex:</label>
     <input type="text" name="sex"/>
 
-    <label for="breed">Breed</label>
+    <label for="breed">Breed:</label>
     <input type="text" name="breed"/>
 
-    <label for="colour">Colour</label>
-    <input type="text" name="colour" />
+    <label for="color">Colour:</label>
+    <input type="text" name="color"/>
 
-    <label for="family-options">Family Options</label>
+    <label for="family-options">Family Options:</label>
     <input type="text" name="family-options"/>
     <br>
+    {{#each users}}
+      
+    {{/each}}
     
     <button type="submit">Submit</button>
     </div>
