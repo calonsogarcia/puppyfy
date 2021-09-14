@@ -1,6 +1,6 @@
 const router = require("express").Router();
-const Puppy = require('../models/Puppy.model');
-const Adoption = require('../models/Adoption.model');
+const PuppyModel = require('../models/Puppy.model');
+const AdoptionModel = require('../models/Adoption.model');
 
 router.get("/", (req, res, next) => {
     res.render("adopt/list.hbs");
@@ -25,7 +25,7 @@ router.get("/adoption-form", (req, res, next) => {
 
 router.post('/adoption-form', (req, res, next) => {
     const {username, puppyName, puppyType, puppyDateOfBirth, puppySex, puppyBreed, puppyColour, puppyFamilyOptions, comments} = req.body
-    Adoption.create({username, puppyName, puppyType, puppyDateOfBirth, puppySex, puppyBreed, puppyColour, puppyFamilyOptions, comments})
+    AdoptionModel.create({username, puppyName, puppyType, puppyDateOfBirth, puppySex, puppyBreed, puppyColour, puppyFamilyOptions, comments})
     .then((form) => {
         res.redirect('/adopt/adoption-form/print')
     })
@@ -44,7 +44,7 @@ router.get("/give-in-adoption", (req, res, next) => {
 
 router.post("/give-in-adoption", (req, res, next) => {
     const {puppyType, breed, dateOfBirth, sex, colour, familyOptions, image, name} = req.body
-    Puppy.create({puppyType, breed, dateOfBirth, sex, colour, familyOptions, image, name})
+    PuppyModel.create({puppyType, breed, dateOfBirth, sex, colour, familyOptions, image, name})
         .then(() => {
             console.log("Puppy created");
             res.redirect("/list");
