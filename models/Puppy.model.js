@@ -12,7 +12,7 @@ const puppySchema = new Schema({
     sex: {
         type: String,
         required: true,
-        enum: ['Felame', 'Male']
+        enum: ['Female', 'Male']
     },
     breed: String,
     colour: String,

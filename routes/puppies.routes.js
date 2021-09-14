@@ -47,7 +47,7 @@ router.post("/give-in-adoption", (req, res, next) => {
     PuppyModel.create({puppyType, breed, dateOfBirth, sex, colour, familyOptions, image, name})
         .then(() => {
             console.log("Puppy created");
-            res.redirect("/list");
+            res.redirect("/give-in-adoption/print");
         })
         .catch((err) => {
             next(err);
