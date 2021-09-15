@@ -15,7 +15,7 @@ router.post("/edition", (req, res, next) => {
     const {username, email, password, fullName, dateOfBirth, sex, address, phone, job, familyStructure, comments} = req.body
     UserModel.create({username, email, password, fullName, dateOfBirth, sex, address, phone, job, familyStructure, comments})
         .then((profile) => {
-            res.redirect('/profile', profile)
+            res.redirect('/profile', {profile})
         })
         .catch((err) => { next(err) });
 })

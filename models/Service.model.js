@@ -4,11 +4,12 @@ const serviceSchema = new Schema({
         serviceType: {
             type: String,
             required: true,
-            enum: ['Puppysitters', 'Hairdresser', "Pettrainers", "Veterinary"],
+            enum: ['Puppysitter', 'Hairdresser', "PuppyTrainer", "Veterinary"],
         },
         name: String,
-        adress: String,
-        contact: Number
+        address: String,
+        contact: String,
+        image: String,
     },
     {
         timestamps: true,

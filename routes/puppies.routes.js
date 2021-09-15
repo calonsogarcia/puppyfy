@@ -30,6 +30,9 @@ router.get("/other-puppies", (req, res, next) => {
     .catch((err) => {next(err)});
 });
 
+
+
+
 //CREATE AN ADOPTION FORM
 router.get("/adoption-form", (req, res, next) => {
     res.render("adopt/adoption-form.hbs");
@@ -49,6 +52,7 @@ router.post('/adoption-form', (req, res, next) => {
 router.get("/adoption-form/print", (req, res, next) => {
         res.render("adopt/adoption-print.hbs"); 
 })
+
 
 // EDIT AN ADOPTION FORM
 

@@ -6,15 +6,36 @@ router.get("/", (req, res, next) => {
 });
 
 router.get("/hairdressers", (req, res, next) => {
-    res.render("services/hairdressers.hbs");
+    ServiceModel.find({serviceType: "Hairdresser"})
+    .then((allHairdressers) => {
+        res.render("services/hairdressers.hbs", {allHairdressers})
+    })
+    .catch((err) => {next(err)});
 });
 
+
 router.get("/puppy-sitters", (req, res, next) => {
-    res.render("services/puppy-sitters.hbs");
+    ServiceModel.find({serviceType: "Puppysitter"})
+    .then((allPuppysitters) => {
+        res.render("services/puppy-sitters.hbs", {allPuppysitters})
+    })
+    .catch((err) => {next(err)});
 });
 
 router.get("/puppy-trainers", (req, res, next) => {
-    res.render("services/puppy-trainers.hbs");
+    ServiceModel.find({serviceType: "PuppyTrainer"})
+    .then((allPuppyTrainers) => {
+        res.render("services/puppy-trainers.hbs", {allPuppyTrainers})
+    })
+    .catch((err) => {next(err)});
+});
+
+router.get("/veterinaries", (req, res, next) => {
+    ServiceModel.find({serviceType: "Veterinary"})
+    .then((allVeterinaries) => {
+        res.render("services/veterinary.hbs", {allVeterinaries})
+    })
+    .catch((err) => {next(err)});
 });
 
 
@@ -24,9 +45,12 @@ router.get("/partners-form", (req, res, next) => {
 })
 
 router.post("/partners-form", (req, res, next) => {
-    const { name, adress, contact } = req.body
-    ServiceModel.create({ name, adress, contact })
-        .then((service) => res.redirect("/", service))
+    const { name, serviceType, address, contact, image } = req.body
+    ServiceModel.create({ name, serviceType, address, contact, image })
+        .then((service) => {
+            console.log(service)
+            res.redirect("/home")
+        })
         .catch((err) => console.log(err));
 
 })

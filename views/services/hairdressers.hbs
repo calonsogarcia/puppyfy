@@ -4,3 +4,15 @@
 <h4>Does your puppy need a hair cut? Do you want your puppy to be the cuttets on earth?</h4>
 <p>Here you'll find what you need!</p>
 
+{{#each allHairdressers}}
+
+<img src="{{this.image}}" alt ="Hairdresser photo">  
+
+<p>Name: {{this.name}}</p>
+<p>Address {{this.address}}</p>
+<p>Contact: {{this.contact}}</p>
+
+
+{{/each}}
+
+<a href="/puppy-care">Back</a>

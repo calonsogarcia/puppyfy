@@ -2,3 +2,16 @@
 
 <h4>Do you want to go to a dinner and don't have a puppy sitter?</h4>
 <p>Here you'll find what you need!</p>
+
+{{#each allPuppysitters}}
+
+<img src="{{this.image}}" alt ="Hairdresser photo">  
+
+<p>Name: {{this.name}}</p>
+<p>Address {{this.address}}</p>
+<p>Contact: {{this.contact}}</p>
+
+
+{{/each}}
+
+<a href="/puppy-care">Back</a>

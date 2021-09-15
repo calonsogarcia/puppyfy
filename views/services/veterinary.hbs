@@ -1,8 +1,19 @@
 <h2>Veterinary</h2>
 
 
+{{#each allHairdressers}}
 
+<img src="{{this.image}}" alt ="Hairdresser photo">  
+
+<p>Name: {{this.name}}</p>
+<p>Address {{this.address}}</p>
+<p>Contact: {{this.contact}}</p>
+
+
+{{/each}}
 
  <p>Are you a veterinary? Do you want to join us? Click below and fill out the form. We'll love to have you with us!</p>
 
-    <a href="puppy-care/partners-form">Be our partner!</a>
+    <a href="partners-form">Be our partner!</a>
+
+    <a href="/home">Back</a>
