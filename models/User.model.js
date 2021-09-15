@@ -22,6 +22,10 @@ const userSchema = new Schema({
     phone: Number,
     job: String,
     familyStructure: String,
+    puppyAdopted:{
+        type: Schema.Types.ObjectId,
+        ref: 'Puppy'
+    },
     comments: String,
 });
 

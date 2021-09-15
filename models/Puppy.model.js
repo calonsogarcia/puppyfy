@@ -8,7 +8,7 @@ const puppySchema = new Schema({
         enum: ['Dog', 'Cat', "Other"]
     },
     name: String,
-    dateOfBirth: Number,
+    birthDate: String,
     sex: {
         type: String,
         required: true,
@@ -17,7 +17,8 @@ const puppySchema = new Schema({
     breed: String,
     colour: String,
     familyOptions: String,
-    image: String
+    image: String,
+    comments: String
 });
 
 

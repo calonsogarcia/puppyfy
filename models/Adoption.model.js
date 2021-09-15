@@ -2,7 +2,10 @@ const { Schema, model } = require("mongoose");
 
 
 const adoptionSchema = new Schema({
-    username: String,
+    username: {
+        type: Schema.Types.ObjectId,
+        ref: 'User'
+    },
     puppyName: String,
     puppyType: {
         type: String,

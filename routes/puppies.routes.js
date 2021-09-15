@@ -44,8 +44,8 @@ router.get("/give-in-adoption", (req, res, next) => {
 })
 
 router.post("/give-in-adoption", (req, res, next) => {
-    const {puppyType, breed, dateOfBirth, sex, colour, familyOptions, image, name} = req.body
-    PuppyModel.create({puppyType, breed, dateOfBirth, sex, colour, familyOptions, image, name})
+    const {puppyType, name, birthDate, sex, colour, breed, familyOptions, image, comments} = req.body
+    PuppyModel.create({puppyType, name, birthDate, sex, colour, breed, familyOptions, image, comments})
         .then(() => {
             console.log("Puppy created");
             res.redirect("/give-in-adoption/print");
@@ -54,6 +54,8 @@ router.post("/give-in-adoption", (req, res, next) => {
             next(err);
         });
 });
+
+
 
 // create /give-in-adoption/print
 

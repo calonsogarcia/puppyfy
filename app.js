@@ -34,8 +34,8 @@ app.use("/user", userRoutes)
 const profileRoutes = require("./routes/profile.routes");
 app.use("/profile", profileRoutes)
 
-const servicesRoutes = require("./routes/services.routes");
-app.use("/puppy-care", servicesRoutes)
+const serviceRoutes = require("./routes/service.routes");
+app.use("/puppy-care", serviceRoutes)
 
 const puppiesRoutes = require("./routes/puppies.routes");
 app.use("/adopt", puppiesRoutes)
