@@ -3,19 +3,25 @@
 
 <h2>Here are our lovely dogs </h2>
 
+
 {{#each allDogs}}
-<img src={{!--Photo URL--}} alt ="dog photo">  
+
+<img src="{{this.image}}" alt ="Dog photo">  
 
 <p>Name: {{this.name}}</p>
-<p>Breed: {{this.breed}}</p>
 <p>Date of Birth {{this.dateOfBirth}}</p>
 <p>Sex: {{this.sex}}</p>
+<p>Breed: {{this.breed}}</p>
 <p>Colour: {{this.colour}}</p>
 <p>Family options: {{this.familyOptions}}</p>
 
-{{/each}}
+<p>Comments: {{this.comments}}</p>
 
 <a href="adoption-form">Adoption Form</a>
+<br>
+<br>
+
+{{/each}}
 
 </div>
 

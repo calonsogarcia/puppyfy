@@ -7,16 +7,27 @@ router.get("/", (req, res, next) => {
 });
 
 router.get("/dogs", (req, res, next) => {
-    res.render("adopt/dogList.hbs");
+    PuppyModel.find({puppyType: "Dog"})
+    .then((allDogs) => {
+        res.render("adopt/dogList.hbs", {allDogs})
+    })
+    .catch((err) => {next(err)});
 });
 
 router.get("/cats", (req, res, next) => {
     PuppyModel.find({puppyType: "Cat"})
-    res.render("adopt/catList.hbs");
+    .then((allCats) => {
+        res.render("adopt/catList.hbs", {allCats})
+    })
+    .catch((err) => {next(err)});
 });
 
 router.get("/other-puppies", (req, res, next) => {
-    res.render("adopt/othersList.hbs");
+    PuppyModel.find({puppyType: "Other"})
+    .then((allOthers) => {
+        res.render("adopt/othersList.hbs", {allOthers})
+    })
+    .catch((err) => {next(err)});
 });
 
 //CREATE AN ADOPTION FORM
@@ -27,15 +38,16 @@ router.get("/adoption-form", (req, res, next) => {
 // Revisar
 router.post('/adoption-form', (req, res, next) => {
     const {username, puppyName, puppyType, puppyDateOfBirth, puppySex, puppyBreed, puppyColour, puppyFamilyOptions, comments} = req.body
-    AdoptionModel.create({username, puppyName, puppyType, puppyDateOfBirth, puppySex, puppyBreed, puppyColour, puppyFamilyOptions, comments})
-    .then((form) => {
-        res.redirect('/adopt/adoption-form/print')
+    AdoptionModel.create(id, {username, puppyName, puppyType, puppyDateOfBirth, puppySex, puppyBreed, puppyColour, puppyFamilyOptions, comments})
+    .then((newForm) => {
+        console.log(newForm)
+        res.redirect('/adopt/adoption-form//print')
     })
     .catch((err) => {next(err)});
 })
 
 router.get("/adoption-form/print", (req, res, next) => {
-    res.render("adopt/adoption-print.hbs");
+        res.render("adopt/adoption-print.hbs"); 
 })
 
 // EDIT AN ADOPTION FORM

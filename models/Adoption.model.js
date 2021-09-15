@@ -17,7 +17,7 @@ const adoptionSchema = new Schema({
         puppySex: {
             type: String,
             required: true,
-            enum: ['Felame', 'Male']
+            enum: ['Female', 'Male']
         },
         puppyBreed: String,
         puppyColour: String,
