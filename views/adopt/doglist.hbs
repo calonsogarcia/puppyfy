@@ -1,27 +1,22 @@
+<div class="listdog">
 
-<div class="listdog">  
+  <h2>Here are our lovely dogs </h2>
 
-<h2>Here are our lovely dogs </h2>
+  {{#each allDogs}}
+    <img src="{{this.image}}" alt="Dog photo" />
 
+    <p>Name: {{this.name}}</p>
+    <p>Date of Birth {{this.dateOfBirth}}</p>
+    <p>Sex: {{this.sex}}</p>
+    <p>Breed: {{this.breed}}</p>
+    <p>Colour: {{this.colour}}</p>
+    <p>Family options: {{this.familyOptions}}</p>
 
-{{#each allDogs}}
+    <p>Comments: {{this.comments}}</p>
 
-<img src="{{this.image}}" alt ="Dog photo">  
-
-<p>Name: {{this.name}}</p>
-<p>Date of Birth {{this.dateOfBirth}}</p>
-<p>Sex: {{this.sex}}</p>
-<p>Breed: {{this.breed}}</p>
-<p>Colour: {{this.colour}}</p>
-<p>Family options: {{this.familyOptions}}</p>
-
-<p>Comments: {{this.comments}}</p>
-
-<a href="adoption-form">Adoption Form</a>
-<br>
-<br>
-
-{{/each}}
+    <a href="/adopt/{{this._id}}/adoption-form">Adoption Form</a>
+    <br />
+    <br />
+  {{/each}}
 
 </div>
-

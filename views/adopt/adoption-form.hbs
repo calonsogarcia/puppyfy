@@ -1,55 +1,16 @@
-<h2>Adoption Form</h2>
+<h2>You're very close to adopting {{puppy.name}}!</h2>
+<p>To confirma the adoption please click on the button</p>
 
-<form action="/adopt/adoption-form" method="post" class="adoption-form">
-
-{{!-- create relation username --}}
-  <label for="username">Hi!! Please, tell us your username</label>
-  <input type="text" name="username" autocomplete="off" />
-
-
-  <h3>Now we need to know which of our wonderful puppies got your heart!</h3>
-
-  <label for="puppyName">Name:</label>
-  <input type="text" name="puppyName" autocomplete="off" />
-  <br />
-
-  <label for="puppyType">Type of animal</label>
-    <select name="puppyType" >
-        <option value="Dog">Dog</option>
-        <option value="Cat">Cat</option>
-        <option value="Other">Other</option>
-    </select>
-
-  <label for="puppyDateOfBirth">Date of Birth:</label>
-  <input type="date" name="puppyDateOfBirth" autocomplete="off" />
-  <br />
-
-  <label for="puppySex">Sex:</label>
-  <select name="puppySex">
-    <option value="Female">Female</option>
-    <option value="Male">Male</option>
-  </select>
-  <br />
-
-  <label for="puppyBreed">Breed:</label>
-  <input type="text" name="puppyBreed" autocomplete="off" />
-  <br />
-
-  <label for="puppyColour">Colour:</label>
-  <input type="text" name="puppyColour" autocomplete="off" />
-  <br />
-
-  <label for="puppyFamilyOptions">Family Options:</label>
-  <input type="text" ame="puppyFamilyOptions" autocomplete="off" placeholder="Would you like to adopt the puppy brother/sister?"/>
-  <br />
-
-  <label for="comments">If you want to tell us something else about you or the puppy you want to adopt, we will be glad to know it!</label>
-  <textarea name="description" cols="30" rows="5" autocomplete="off"></textarea>
-  <br />
-
+<form
+  action="/adopt/{{puppy._id}}/adoption-form"
+  method="post"
+  class="adoption-form"
+>
   <button type="submit">Let's go!!</button>
-
 </form>
+<h3>{{errorMessage}}</h3>
 
 <p>
-  <strong>Important!</strong> if you want to submit the adoption form, you need to signup and fulfill all the personal information in the profile.</p>
+  <strong>Important!</strong>
+  if you want to submit the adoption form, you need to signup and fulfill all
+  the personal information in the profile.</p>

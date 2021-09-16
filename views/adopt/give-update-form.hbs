@@ -1,0 +1,27 @@
+<h2>Update your Puppy</h2>
+
+<form action="/give-in-adoption/{{puppy._id}}/give-update-form" method="post">
+  <label for="typeOfAnimal">Type of animal:</label>
+  <input type="text" name="typeOfAnimal" value="{{puppy.puppytype}}">
+  <label for="name">Name</label>
+  <input type="text" name="name" value="{{puppy.name}}">
+  <label for="birthDate">Date of Birth</label>
+  <input type="date" name="birthDate" value="{{puppy.birthDate}}">
+  <label for="sex">Sex</label>
+  <input type="text" name="sex" value="{{puppy.sex}}">
+  <label for="breed">Breed:</label>
+  <input type="text" name="breed" value="{{puppy.breed}}">
+  <label for="colour">Colour:</label>
+  <input type="text" name="colour" value="{{puppy.colour}}">
+  <label for="familyOptions">Family Options:</label>
+  <input type="date" name="familyOptions" value="{{puppy.familyOptions}}">
+  <label for="image">Puppy photo:</label>
+  <input type="text" name="image" value="{{puppy.image}}">
+
+  <button type="submit">Comments</button>
+
+</form>
+
+<a href="/drones" class="links" >Back</a>
+
+
