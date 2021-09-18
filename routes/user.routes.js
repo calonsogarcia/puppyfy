@@ -90,8 +90,8 @@ router.post('/login', (req, res, next) => {
            if(checkPassword){
                //create the active session
                req.session.loggedInUser = user
-
-               req.app.locals.isLoggedIn = true,
+               
+               req.app.locals.isLoggedIn = true
 
                res.redirect('/profile')
 
