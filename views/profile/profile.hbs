@@ -1,31 +1,27 @@
-<h1>Hi!! this is your Puppyfy profile</h1>
+<h1>Hi!! this is your Puppyfy profile {{user.username}}:</h1>
 
-<p>Username: {{profile.username}}</p>
+<p>Username:{{user.username}} </p>
 
-<p>Email: </p>
-
-<p>Password: </p>
-
-<p>Full name:</p>
-
-<p>Date of Birth: </p>
-
-<p>Sex: </p>
-
-<p>Address: </p>
-
-<p>Phone:</p>
-
-<p>Job:</p>
-
-<p>Family structure:</p>
-
-<p>Puppy adopted</p>
-
-<p>Comments:</p>
+{{#if isLoggedUser}}
+<p>Email: {{user.email}}</p>
+<p>Job:{{user.job}}</p>
+<p>Full name:{{user.fullName}}</p>
+<p>Date of Birth:{{user.dateOfBirth}} </p>
+<p>Sex:{{user.sex}} </p>
+<p>Address: {{user.adress}}</p>
+<p>Phone:{{user.phone}}</p>
+<p>Family structure:{{user.familyStructure}}</p>
+{{/if}}
 
 
-<p>Please, fill the information above. This will be usefull for us to get to know you</p>
 
-<a href="profile/edition">Edit your profile</a>
 
+
+
+
+
+<p>Please, fill the information above. This will be usefull for us to get to
+  know you</p>
+
+<a href="/profile//:userId/edition">Edit your profile</a>
+<a href="/profile//:userId/delete">Delete your profile</a>

@@ -70,42 +70,42 @@ router.get("/login", (req, res, next) => {
 
 
 router.post('/login', (req, res, next) => {
-    //requuire the info needed for login
-    const {username, password} = req.body
+    //require the info needed for login
+    const { username, password } = req.body
 
     // check that everything is fulfill
     if (!username || !password) {
         res.render('user/login.hbs', { errorMessage: "Please, fill out all fields" })
         return;
-      }
+    }
 
     // check if user exists
-    UserModel.findOne({username})
-    .then((user) => {
-        if(user){
+    UserModel.findOne({ username })
+        .then((user) => {
+            if (user) {
 
-           // check if the password exists
-           const checkPassword = bcrypt.compareSync(password, user.password)
+                // check if the password exists
+                const checkPassword = bcrypt.compareSync(password, user.password)
 
-           if(checkPassword){
-               //create the active session
-               req.session.loggedInUser = user
+                if (checkPassword) {
+                    //create the active session
+                    req.session.loggedInUser = user
 
-               req.app.locals.isLoggedIn = true,
+                    req.app.locals.isLoggedIn = true,
 
-               res.redirect('/profile')
+                        res.redirect(`/profile/${user._id}`)
 
-           } else {
-               res.render('user/login.hbs', { errorMessage: "The password is wrong, please, try again!" })
-           }
-        } else {
-            //if user doesn't exist send them back to login
-            res.render('user/login.hbs', { errorMessage: "The user doesn't exist, please signup to login"})
-        } 
-    })
-    .catch((err) => {
-        next(err)
-    });
+                } else {
+                    res.render('user/login.hbs', { errorMessage: "The password is wrong, please, try again!" })
+                }
+            } else {
+                //if user doesn't exist send them back to login
+                res.render('user/login.hbs', { errorMessage: "The user doesn't exist, please signup to login" })
+            }
+        })
+        .catch((err) => {
+            next(err)
+        });
 })
 
 

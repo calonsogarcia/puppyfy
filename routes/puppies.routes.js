@@ -1,7 +1,6 @@
 const router = require("express").Router();
 const PuppyModel = require("../models/Puppy.model");
 const AdoptionModel = require("../models/Adoption.model");
-const Puppy = require("../models/Puppy.model");
 
 router.get("/", (req, res, next) => {
     res.render("adopt/list.hbs");
@@ -39,12 +38,12 @@ router.get("/other-puppies", (req, res, next) => {
 
 //CREATE AN ADOPTION FORM
 router.get("/:puppyId/adoption-form", (req, res, next) => {
-    PuppyModel.findById(req.params.puppyId).then((puppy) => {
-        res.render("adopt/adoption-form.hbs", { puppy });
-    });
+    PuppyModel.findById(req.params.puppyId)
+        .then((puppy) => {
+            res.render("adopt/adoption-form.hbs", { puppy });
+        });
 });
 
-// Revisar
 router.post("/:puppyId/adoption-form", (req, res, next) => {
     let user_id;
     const puppy_id = req.params.puppyId;
@@ -56,25 +55,32 @@ router.post("/:puppyId/adoption-form", (req, res, next) => {
         return;
     }
     AdoptionModel.create({
-            user_id: req.session.loggedInUser._id,
-            puppy_id: req.params.puppyId,
+            user_id,
+            puppy_id,
         })
-        .then((newForm) => {
-            console.log(newForm);
-            res.redirect("/adopt/adoption-form//print");
+        .then((adoption) => {
+            res.redirect(`/adopt/${adoption._id}/adoption-print`);
         })
         .catch((err) => {
             next(err);
         });
 });
 
-router.get("/adoption-form/print", (req, res, next) => {
-    res.render("adopt/adoption-print.hbs");
+router.get("/:adoptionId/adoption-print", (req, res, next) => {
+    AdoptionModel.findById(req.params.adoptionId)
+        .populate('puppy_id')
+        .then((adoption) => {
+            res.render("adopt/adoption-print.hbs", { adoption_id: adoption._id, puppy: adoption.puppy_id });
+        });
 });
 
-// EDIT AN ADOPTION FORM
+router.post("/:adoptionId/delete", (req, res, next) => {
+    AdoptionModel.findByIdAndDelete(req.params.adoptionId)
+        .then((adoption) => {
+            res.redirect("/adopt");
+        });
+});
 
-//DELETE AN ADOPTION FORM
 
 // CREATE A PUPPY
 router.get("/give-in-adoption", (req, res, next) => {
@@ -94,29 +100,31 @@ router.post("/give-in-adoption", (req, res, next) => {
         comments,
     } = req.body;
     PuppyModel.create({
-            puppyType,
-            name,
-            birthDate,
-            sex,
-            colour,
-            breed,
-            familyOptions,
-            image,
-            comments,
-        })
-        .then((newPuppy) => {
-            console.log("Puppy created");
-            res.redirect("/adopt/give-in-adoption/print");
-        })
-        .catch((err) => {
-            next(err);
-        });
+        puppyType,
+        name,
+        birthDate,
+        sex,
+        colour,
+        breed,
+        familyOptions,
+        image,
+        comments,
+    })
+
+    .then((puppy) => {
+        console.log("Puppy created", { puppy });
+        res.redirect("/adopt/give-in-adoption/print");
+    })
+
+    .catch((err) => {
+        next(err);
+    });
 });
 
 //EDIT A PUPPY
 router.get("/give-in-adoption/print", (req, res, next) => {
     const { id } = req.params;
-    Puppy.findById(id).then((puppy) => {
+    PuppyModel.findById(id).then((puppy) => {
         res.render("adopt/give-print.hbs", { puppy });
     });
 });

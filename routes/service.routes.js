@@ -6,53 +6,53 @@ router.get("/", (req, res, next) => {
 });
 
 router.get("/hairdressers", (req, res, next) => {
-    ServiceModel.find({serviceType: "Hairdresser"})
-    .then((allHairdressers) => {
-        res.render("services/hairdressers.hbs", {allHairdressers})
-    })
-    .catch((err) => {next(err)});
+    ServiceModel.find({ serviceType: "Hairdresser" })
+        .then((allHairdressers) => {
+            res.render("services/hairdressers.hbs", { allHairdressers })
+        })
+        .catch((err) => { next(err) });
 });
 
 
 router.get("/puppy-sitters", (req, res, next) => {
-    ServiceModel.find({serviceType: "Puppysitter"})
-    .then((allPuppysitters) => {
-        res.render("services/puppy-sitters.hbs", {allPuppysitters})
-    })
-    .catch((err) => {next(err)});
+    ServiceModel.find({ serviceType: "Puppysitter" })
+        .then((allPuppysitters) => {
+            res.render("services/puppy-sitters.hbs", { allPuppysitters })
+        })
+        .catch((err) => { next(err) });
 });
 
 router.get("/puppy-trainers", (req, res, next) => {
-    ServiceModel.find({serviceType: "PuppyTrainer"})
-    .then((allPuppyTrainers) => {
-        res.render("services/puppy-trainers.hbs", {allPuppyTrainers})
-    })
-    .catch((err) => {next(err)});
+    ServiceModel.find({ serviceType: "PuppyTrainer" })
+        .then((allPuppyTrainers) => {
+            res.render("services/puppy-trainers.hbs", { allPuppyTrainers })
+        })
+        .catch((err) => { next(err) });
 });
 
 router.get("/veterinaries", (req, res, next) => {
-    ServiceModel.find({serviceType: "Veterinary"})
-    .then((allVeterinaries) => {
-        res.render("services/veterinary.hbs", {allVeterinaries})
-    })
-    .catch((err) => {next(err)});
+    ServiceModel.find({ serviceType: "Veterinary" })
+        .then((allVeterinaries) => {
+            res.render("services/veterinary.hbs", { allVeterinaries })
+        })
+        .catch((err) => { next(err) });
 });
 
 
 
-router.get("/partners-form", (req, res, next) => {
+router.get("/create", (req, res, next) => {
     res.render("services/partners-form.hbs");
 })
 
-router.post("/partners-form", (req, res, next) => {
-    const { name, serviceType, address, contact, image } = req.body
+router.post("/create", (req, res, next) => {
+    const { name, serviceType, address, contact, image } = req.body;
     ServiceModel.create({ name, serviceType, address, contact, image })
         .then((service) => {
-            console.log(service)
-            res.redirect("/home")
+            console.log("service created", service);
+            res.redirect("/")
         })
-        .catch((err) => console.log(err));
+        .catch((err) => next(err));
 
-})
+});
 
 module.exports = router;

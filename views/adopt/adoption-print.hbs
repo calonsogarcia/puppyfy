@@ -1,17 +1,22 @@
  
-<h2>Adoption Form</h2>
-
-  <p>Username: {{newForm.username}}</p>
-
-  <p>Name:{{newForm.name}}</p>
-  <p>Type of animal: {{newForm.puppyType}}</p>
-  <p>Date of birth: {{newForm.puppyDateOfBirth}}</p>
-  <p>Sex: {{newForm.puppySex}}</p>
-  <p>Breed: {{newForm.puppyBreed}}</p>
-  <p>Colour: {{newForm.puppyColour}}</p>
-  <p>Family options: {{newForm.puppyFamilyOptions}}</p>
-
-  <p>Comments: {{newForm.comments}}</p>
+<h2>Adoption formulary</h2>
 
 
-{{!-- <a href="adoption-form">Back</a> --}}
+  <p>Username: {{adoption.user.username}}</p>
+<hr>
+  <p>Name:  {{puppy.name}}</p>
+  <p>Type of animal:  {{puppy.puppyType}}</p>
+  <p>Date of birth:  {{puppy.birthDate}}</p>
+  <p>Sex:  {{puppy.sex}}</p>
+  <p>Breed:  {{puppy.breed}}</p>
+  <p>Colour:  {{puppy.colour}}</p>
+  <p>Family options:  {{puppy.familyOptions}}</p>
+  <p>Photo:  {{puppy.image}}</p>
+
+  <p>Comments:  {{puppy.comments}}</p>
+
+
+ <h3>Print</h3>
+ <form action="/adopt/{{adoption_id}}/delete" method="post">
+   <button type="submit">I don't want to adopt this pet anymore.</button>
+ </form>
