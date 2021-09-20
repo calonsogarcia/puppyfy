@@ -15,7 +15,7 @@ router.get("/hairdressers", (req, res, next) => {
 
 
 router.get("/puppy-sitters", (req, res, next) => {
-    ServiceModel.find({ serviceType: "Puppysitter" })
+    ServiceModel.find({ serviceType: "PuppySitter" })
         .then((allPuppysitters) => {
             res.render("services/puppy-sitters.hbs", { allPuppysitters })
         })
@@ -39,12 +39,12 @@ router.get("/veterinaries", (req, res, next) => {
 });
 
 
-
-router.get("/create", (req, res, next) => {
+// CREATE A SERVICE
+router.get("/partners-form", (req, res, next) => {
     res.render("services/partners-form.hbs");
 })
 
-router.post("/create", (req, res, next) => {
+router.post("/partners-form", (req, res, next) => {
     const { name, serviceType, address, contact, image } = req.body;
     ServiceModel.create({ name, serviceType, address, contact, image })
         .then((service) => {
@@ -52,7 +52,36 @@ router.post("/create", (req, res, next) => {
             res.redirect("/home")
         })
         .catch((err) => next(err));
-
 });
+
+// UPDATE A SERVICE
+router.get("/:serviceId/partners-edition", (req, res, next) => {
+    ServiceModel.findById(req.params.serviceId)
+        .then((service) => {
+            res.render("services/partners-edition.hbs", {service})
+        })
+        .catch((err) => { next(err) });
+    
+})
+
+router.post("/:serviceId/partners-edition", (req, res, next) => {
+    const { name, serviceType, address, contact, image } = req.body;
+    ServiceModel.findByIdAndUpdate(req.params.serviceId, { name, serviceType, address, contact, image }, {new: true})
+    .then((editedService) => {
+        console.log("Here's the service you just edited", {editedService})
+        res.redirect("/puppy-care/partners-form")
+    })
+    .catch((err) => { next(err) });
+})
+
+// DELETE A SERVICE
+router.post("/:serviceId/partners-edition/delete", (req, res, next) => {
+    ServiceModel.findByIdAndDelete(req.params.serviceId)
+    .then(() => {
+        res.redirect("/puppy-care/partners-form")
+    })
+    .catch((err) => { next(err) });
+})
+
 
 module.exports = router;

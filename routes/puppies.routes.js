@@ -54,10 +54,7 @@ router.post("/:puppyId/adoption-form", (req, res, next) => {
         res.redirect(`/adopt/${puppy_id}/adoption-form`);
         return;
     }
-    AdoptionModel.create({
-            user_id,
-            puppy_id,
-        })
+    AdoptionModel.create({user_id, puppy_id})
         .then((adoption) => {
             res.redirect(`/adopt/${adoption._id}/adoption-print`);
         })
@@ -110,7 +107,7 @@ router.get("/:puppyId/give-in-adoption/print", (req, res, next) => {
         .catch((err) => next(err))
 });
 
-//EDIT A PUPPY
+//UPDATE A PUPPY
 router.get("/:puppyId/give-in-adoption/update", (req, res, next) => {
     const puppy_id = req.params.puppyId;
     PuppyModel.findById(puppy_id)

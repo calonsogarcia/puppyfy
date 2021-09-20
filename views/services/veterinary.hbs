@@ -2,7 +2,7 @@
 <h2>Veterinary</h2>
 
 
-{{#each allHairdressers}}
+{{#each allVeterinaries}}
 
 <img src="{{this.image}}" alt ="Veterinary photo">  
 
@@ -10,7 +10,8 @@
 <p>Address {{this.address}}</p>
 <p>Contact: {{this.contact}}</p>
 
-
+<a href="/puppy-care/{{this._id}}/partners-edition">Edit</a>
+<br>
 {{/each}}
 
  <p>Are you a veterinary? Do you want to join us? Click below and fill out the form. We'll love to have you with us!</p>

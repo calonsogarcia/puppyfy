@@ -4,7 +4,7 @@ const serviceSchema = new Schema({
         serviceType: {
             type: String,
             required: true,
-            enum: ['Puppysitter', 'Hairdresser', "PuppyTrainer", "Veterinary"],
+            enum: ['PuppySitter', 'Hairdresser', "PuppyTrainer", "Veterinary"],
         },
         name: String,
         address: String,
