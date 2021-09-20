@@ -3,7 +3,7 @@
  
 <h3>Here is the puppy you want to give in adoption!</h3>
 
-<p> {{puppy.name}}</p>
+<h3> {{puppy.name}}</h3>
 
   <p>Type of animal:  {{puppy.puppyType}}</p>
   <p>Date of birth:  {{puppy.birthDate}}</p>
@@ -15,9 +15,10 @@
 
   <p>Comments:  {{puppy.comments}}</p>
  
-<a href="/adopt/give-in-adoption/:id/update-form">Edit the data of your puppy</a>
+<a href="/adopt/{{this._id}}/give-print">Edit your adoption</a>
+    <br />
 
-<form action="/adopt/{{adoption_id}}/delete" method="post">
-   <button type="submit">I don't want to give this pet in adoption.</button>
+<form action="/adopt/{{puppy_id}}/delete" method="post">
+   <button type="submit">I don't want to give this pet in adoption anymore.</button>
  </form>
 

@@ -73,7 +73,7 @@ router.get("/:adoptionId/adoption-print", (req, res, next) => {
             res.render("adopt/adoption-print.hbs", { adoption_id: adoption._id, puppy: adoption.puppy_id });
         });
 });
-
+//DELETE AN ADOPTION FORM
 router.post("/:adoptionId/delete", (req, res, next) => {
     AdoptionModel.findByIdAndDelete(req.params.adoptionId)
         .then((adoption) => {
@@ -113,7 +113,7 @@ router.post("/give-in-adoption", (req, res, next) => {
 
     .then((puppy) => {
         console.log("Puppy created", { puppy });
-        res.redirect("/adopt/give-in-adoption/print");
+        res.redirect(`/adopt/${puppy._id}/give-in-adoption/print`);
     })
 
     .catch((err) => {
@@ -122,15 +122,25 @@ router.post("/give-in-adoption", (req, res, next) => {
 });
 
 //EDIT A PUPPY
-router.get("/give-in-adoption/print", (req, res, next) => {
-    const { id } = req.params;
-    PuppyModel.findById(id).then((puppy) => {
-        res.render("adopt/give-print.hbs", { puppy });
-    });
+router.get("/:puppyId/give-print", (req, res, next) => {
+    const puppy_id = req.params.puppyId;
+    PuppyModel.findById(puppy_id)
+        .then((puppy) => {
+            res.render("adopt/give-print.hbs", { puppy });
+        })
+        .catch((err) => next(err))
+});
+router.get("/:puppyId/give-update-form", (req, res, next) => {
+    const puppy_id = req.params.puppyId;
+    PuppyModel.findById(puppy_id)
+        .then((puppy) => {
+            res.render("adopt/give-update-form.hbs", { puppy });
+        })
+        .catch((err) => next(err))
 });
 
-router.post("/give-in-adoption/:id/update-form", (req, res, next) => {
-    const { id } = req.params;
+router.post("/:puppyId/give-update-form", (req, res, next) => {
+    const puppy_id = req.params.puppyId;
     const {
         puppyType,
         name,
@@ -140,10 +150,10 @@ router.post("/give-in-adoption/:id/update-form", (req, res, next) => {
         breed,
         familyOptions,
         image,
-        comments,
+        comments
     } = req.body;
     PuppyModel.findByIdAndUpdate(
-            id, {
+            puppy_id, {
                 puppyType,
                 name,
                 birthDate,
@@ -153,13 +163,10 @@ router.post("/give-in-adoption/:id/update-form", (req, res, next) => {
                 familyOptions,
                 image,
                 comments,
-            }, { new: true }
-        )
+            }, { new: true })
         .then((puppy) => {
-            console.log("puppy requested", puppy);
-            res.redirect(`/give-in-adoption/${puppy._id}`);
-
-            res.render("/give-in-adoption/give-update-form", { puppy });
+            console.log("puppy updated", puppy);
+            res.redirect(` adopt/${ puppy._id }/give-update-form`);
         })
         .catch((err) => {
             next(err);
@@ -167,10 +174,11 @@ router.post("/give-in-adoption/:id/update-form", (req, res, next) => {
 });
 
 //DELETE A PUPPY
-router.post("/give-in-adoption/:id/delete", (req, res, next) => {
-    const { id } = req.params;
-    PuppyModel.findByIdAndDelete(id)
+router.post("/:puppyId/delete", (req, res, next) => {
+
+    PuppyModel.findByIdAndDelete(req.params.puppyId)
         .then(() => {
+            console.log("deleted puppy")
             res.redirect("/");
         })
         .catch((err) => {

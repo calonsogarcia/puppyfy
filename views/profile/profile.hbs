@@ -13,15 +13,11 @@
 <p>Family structure:{{user.familyStructure}}</p>
 {{/if}}
 
-
-
-
-
-
-
-
 <p>Please, fill the information above. This will be usefull for us to get to
   know you</p>
 
-<a href="/profile//:userId/edition">Edit your profile</a>
-<a href="/profile//:userId/delete">Delete your profile</a>
+<a href="/profile/:userId/edition">Edit your profile</a>
+
+<form action="/profile/{{user_id}}/delete" method="post">
+   <button type="submit">Delete your profile</button>
+ </form>

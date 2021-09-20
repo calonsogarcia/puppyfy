@@ -49,7 +49,7 @@ router.post("/create", (req, res, next) => {
     ServiceModel.create({ name, serviceType, address, contact, image })
         .then((service) => {
             console.log("service created", service);
-            res.redirect("/")
+            res.redirect("/home")
         })
         .catch((err) => next(err));
 
