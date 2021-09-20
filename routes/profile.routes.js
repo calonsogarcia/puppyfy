@@ -1,6 +1,10 @@
 const router = require("express").Router();
 const UserModel = require("../models/User.model");
 
+//require cloudinary
+const fileStorage = require('../middlewares/cloudinary')
+
+
 router.get("/:userId", (req, res, next) => {
     const user_id = req.params.userId;
     const logged_id = req.session.loggedInUser._id;
@@ -24,8 +28,9 @@ router.get("/:userId/profile-edition", (req, res, next) => {
         .catch((err) => {next(err)});
 });
 
-router.post("/:userId/profile-edition", (req, res, next) => {
+router.post("/:userId/profile-edition", fileStorage.single('userImage'), (req, res, next) => {
     const user_id = req.params.userId;
+    const userImage = req.file; //GET THE IMAGE
     const { username, email, password, fullName, dateOfBirth, sex, address, phone, job, familyStructure, comments } = req.body;
     UserModel.findByIdAndUpdate(user_id, { username, email, password, fullName, dateOfBirth, sex, address, phone, job, familyStructure, comments }, {new: true})
         .then((userFromDb) => {

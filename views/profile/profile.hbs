@@ -1,8 +1,10 @@
 <h1>Hi!! this is your Puppyfy profile:</h1>
 
+<p>{{user.userImage}}</p>
 <p>Username: {{user.username}} </p>
 
 {{#if isLoggedUser}}
+
 <p>Email: {{user.email}}</p>
 <p>Job: {{user.job}}</p>
 <p>Full name: {{user.fullName}}</p>
@@ -14,6 +16,7 @@
 <p>Family structure: {{user.familyStructure}}</p>
 
 <p>Comments: {{user.comments}}</p>
+
 {{/if}}
 
 <p>Please, fill the information above. This will be usefull for us to get to

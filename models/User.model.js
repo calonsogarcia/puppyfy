@@ -25,6 +25,10 @@ const userSchema = new Schema({
         phone: Number,
         job: String,
         familyStructure: String,
+        userImage: {
+            type: String,
+            default: 'https://png.pngtree.com/png-vector/20190909/ourmid/pngtree-outline-user-icon-png-image_1727916.jpg'
+        },
         /* puppyAdopted:{
             type: Schema.Types.ObjectId,
             ref: 'Puppy'

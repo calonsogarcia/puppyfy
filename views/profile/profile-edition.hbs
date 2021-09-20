@@ -1,6 +1,11 @@
 <h1>Hey! Would you like to change something?</h1>
 
 <form action="/profile/{{user._id}}/profile-edition" method="POST">
+
+<label for="userImage">Profile photo</label>
+<input type="file" name="userImage">
+<br>
+
 <label for="username">Username</label>
 <input type="text" name="username" value="{{user.username}}"/>
 <br>
