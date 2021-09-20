@@ -19,7 +19,6 @@ const userSchema = new Schema({
         dateOfBirth: Number,
         sex: {
             type: String,
-            required: true,
             enum: ["Female", "Male"],
         },
         address: String,

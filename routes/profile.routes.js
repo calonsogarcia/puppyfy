@@ -21,16 +21,13 @@ router.get("/:userId/profile-edition", (req, res, next) => {
         .then((userFromDb) => {
             res.render("profile/profile-edition.hbs", {user: userFromDb});
         })
-        .catch((err) => {
-            next(err);
-        });
+        .catch((err) => {next(err)});
 });
-
 
 router.post("/:userId/profile-edition", (req, res, next) => {
     const user_id = req.params.userId;
     const { username, email, password, fullName, dateOfBirth, sex, address, phone, job, familyStructure, comments } = req.body;
-    UserModel.findByIdAndUpdate(user_id, { username, email, password, fullName, dateOfBirth, sex, address, phone, job, familyStructure, comments })
+    UserModel.findByIdAndUpdate(user_id, { username, email, password, fullName, dateOfBirth, sex, address, phone, job, familyStructure, comments }, {new: true})
         .then((userFromDb) => {
             console.log("profile updated", userFromDb)
             res.redirect(`/profile/${userFromDb._id}`);
@@ -41,7 +38,7 @@ router.post("/:userId/profile-edition", (req, res, next) => {
 
 });
  
-
+// DELETE PROFILE
 router.post("/:userId/delete", (req, res, next) => {
     UserModel.findByIdAndDelete(req.params.userId)
         .then(() => {
