@@ -42,16 +42,14 @@ router.post("/:userId/profile-edition", (req, res, next) => {
 });
  
 
-/* router.post("/:userId/delete", (req, res, next) => {
-    const logged_id = req.session.loggedInUser._id;
-    const isLoggedUser = req.params.userId === logged_id;
+router.post("/:userId/delete", (req, res, next) => {
     UserModel.findByIdAndDelete(req.params.userId)
         .then(() => {
-            res.redirect("/home", {isLoggedUser});
+            res.redirect("/home");
         })
         .catch((err) => {
             next(err);
         });
-    }); */
+    });
 
 module.exports = router;
