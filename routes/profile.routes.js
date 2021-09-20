@@ -15,45 +15,43 @@ router.get("/:userId", (req, res, next) => {
 });
 
 // EDIT PROFILE
-router.get("/:userId/edition", (req, res, next) => {
+router.get("/:userId/profile-edition", (req, res, next) => {
     const user_id = req.params.userId;
-    const logged_id = req.session.loggedInUser._id;
-    const isLoggedUser = user_id === logged_id;
-
-    UserModel.findById(user_id)
+    UserModel.findByIdAndUpdate(user_id)
         .then((userFromDb) => {
-            //res.render(`/profile/${{ user_id }}/edition`, { profile });
-            res.render(`/profile/${{ user_id }}/edition`, { user: userFromDB, isLoggedUser });
+            res.render("profile/profile-edition.hbs", {user: userFromDb});
         })
         .catch((err) => {
             next(err);
         });
 });
 
-router.post("/:userId/edition", (req, res, next) => {
+
+router.post("/:userId/profile-edition", (req, res, next) => {
     const user_id = req.params.userId;
-    const logged_id = req.session.loggedInUser._id;
-    const isLoggedUser = user_id === logged_id;
     const { username, email, password, fullName, dateOfBirth, sex, address, phone, job, familyStructure, comments } = req.body;
-
     UserModel.findByIdAndUpdate(user_id, { username, email, password, fullName, dateOfBirth, sex, address, phone, job, familyStructure, comments })
-        .then((profile) => {
-            console.log("profile updated", profile)
-            res.redirect("/profile", { profile });
+        .then((userFromDb) => {
+            console.log("profile updated", userFromDb)
+            res.redirect(`/profile/${userFromDb._id}`);
         })
         .catch((err) => {
             next(err);
         });
 
-
-    //DELETE PROFILE
 });
-router.post("/:userId/delete", (req, res, next) => {
+ 
 
+/* router.post("/:userId/delete", (req, res, next) => {
+    const logged_id = req.session.loggedInUser._id;
+    const isLoggedUser = req.params.userId === logged_id;
     UserModel.findByIdAndDelete(req.params.userId)
         .then(() => {
-            console.log("profile deleted ")
-            res.redirect("/profile");
+            res.redirect("/home", {isLoggedUser});
+        })
+        .catch((err) => {
+            next(err);
         });
-});
+    }); */
+
 module.exports = router;

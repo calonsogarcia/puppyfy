@@ -17,7 +17,11 @@ const userSchema = new Schema({
         },
         fullName: String,
         dateOfBirth: Number,
-        sex: String,
+        sex: {
+            type: String,
+            required: true,
+            enum: ["Female", "Male"],
+        },
         address: String,
         phone: Number,
         job: String,
