@@ -134,7 +134,7 @@ router.post("/:puppyId/give-in-adoption/update", (req, res, next) => {
 });
 
 //DELETE A PUPPY
-router.post("/:puppyId/give-in-adoption/print/delete", (req, res, next) => {
+router.post("/:puppyId/give-in-adoption/delete", (req, res, next) => {
     PuppyModel.findByIdAndDelete(req.params.puppyId)
         .then(() => {
             console.log("deleted puppy")
