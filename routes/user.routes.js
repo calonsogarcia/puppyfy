@@ -89,11 +89,11 @@ router.post('/login', (req, res, next) => {
 
                 if (checkPassword) {
                     //create the active session
-                    req.session.loggedInUser = user
+                    req.session.loggedInUser = user;
+                    req.app.locals.isLoggedIn = true;
+                    req.app.locals.loggedInUserId = user._id;
 
-                    req.app.locals.isLoggedIn = true,
-
-                        res.redirect(`/profile/${user._id}`)
+                    res.redirect(`/profile/${user._id}`);
 
                 } else {
                     res.render('user/login.hbs', { errorMessage: "The password is wrong, please, try again!" })
