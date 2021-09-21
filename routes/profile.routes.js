@@ -5,15 +5,15 @@ const UserModel = require("../models/User.model");
 const fileStorage = require('../middlewares/cloudinary');
 const User = require("../models/User.model");
 
-router.get("/", (req, res, next) => {
-    res.render("profile/profile.hbs")
-    /* UserModel.find({username})
+router.get("/profiles-list", (req, res, next) => {
+    // res.render("profile/profile.hbs")
+    UserModel.find(req.params.username)
         .then((allUsers) => {
-            res.render("profile/profile.hbs", {allUsers})
+            res.render("profile/profiles-list.hbs", {allUsers})
         })
         .catch((err) => {
             next(err)
-        }); */
+        });
     })
 
 

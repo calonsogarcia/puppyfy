@@ -1,0 +1,14 @@
+<h1>Hi!! this are our friends on Puppyfy!</h1>
+<br>
+
+{{#each allUsers}}
+<img src="{{this.userImage}}" alt="Profile picture">
+
+<p>Username: {{this.username}} </p>
+
+{{#if isLoggedUser}}
+<a href="/profile/{{this.user._id}}">Personal profile</a>
+<br>
+{{/if}}
+
+{{/each}}
