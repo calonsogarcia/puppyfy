@@ -1,23 +1,28 @@
 
-
   <h2>Here are our lovely dogs </h2>
 
-  {{#each allDogs}}
-    <img src="{{this.image}}" alt="Dog photo" />
+<div class="container-sm">
+  <div class="row">
+      {{#each allDogs}}
+        <div class="col-12 col-sm-4 col-md-3">
+          <img src="{{this.image}}" alt="Dog photo" />
 
-    <p>Name: {{this.name}}</p>
-    <p>Date of Birth {{this.birthDate}}</p>
-    <p>Sex: {{this.sex}}</p>
-    <p>Breed: {{this.breed}}</p>
-    <p>Colour: {{this.colour}}</p>
-    <p>Family options: {{this.familyOptions}}</p>
+          <p>Name: {{this.name}}</p>
+          <p>Date of Birth {{this.birthDate}}</p>
+          <p>Sex: {{this.sex}}</p>
+          <p>Breed: {{this.breed}}</p>
+          <p>Colour: {{this.colour}}</p>
+          <p>Family options: {{this.familyOptions}}</p>
 
-    <p>Comments: {{this.comments}}</p>
+          <p>Comments: {{this.comments}}</p>
 
-
-    <a href="/adopt/{{this._id}}/adoption-form">Adoption Form</a>
-   <br>
-  {{/each}}
+          <a href="/adopt/{{this._id}}/adoption-form">Adoption Form</a>
+        </div>
+      {{/each}}
+    </div>
+</div>
 
 <a href="/adopt">Back</a>
+
+
 

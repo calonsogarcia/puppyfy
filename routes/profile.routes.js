@@ -6,7 +6,6 @@ const fileStorage = require('../middlewares/cloudinary');
 const User = require("../models/User.model");
 
 router.get("/profiles-list", (req, res, next) => {
-    // res.render("profile/profile.hbs")
     UserModel.find(req.params.username)
         .then((allUsers) => {
             res.render("profile/profiles-list.hbs", {allUsers})

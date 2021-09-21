@@ -1,11 +1,23 @@
+     
+    body{
+    background-color: rgb(209, 228, 235);
+    margin: 0;
+    }
+
      .container{
          background-color: #b6ebda
      }
      
-     body{
-        background-color: rgb(209, 212, 213)
+    h2{
+         padding: 30 0 30 0;
+         text-align: center;
+        
      }
+
+  
      
+
+
      /*  body {
           padding: 50px;
           font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
