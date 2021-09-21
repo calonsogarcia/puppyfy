@@ -2,7 +2,19 @@ const router = require("express").Router();
 const UserModel = require("../models/User.model");
 
 //require cloudinary
-const fileStorage = require('../middlewares/cloudinary')
+const fileStorage = require('../middlewares/cloudinary');
+const User = require("../models/User.model");
+
+router.get("/", (req, res, next) => {
+    res.render("profile/profile.hbs")
+    /* UserModel.find({username})
+        .then((allUsers) => {
+            res.render("profile/profile.hbs", {allUsers})
+        })
+        .catch((err) => {
+            next(err)
+        }); */
+    })
 
 
 router.get("/:userId", (req, res, next) => {

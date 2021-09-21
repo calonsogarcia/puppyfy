@@ -1,10 +1,24 @@
-<h1>Hi!! this is your Puppyfy profile:</h1>
+
+{{!-- THIS SHOULD APPEAR ONLY IF YOU ARE NOT LOGGED IN --}}
+<h1>Hi!! this are our friends on Puppyfy!</h1>
+<br>
+
+{{#each allUsers}}
+<img src="{{this.userImage}}" alt="Profile picture">
+
+<p>Username: {{this.username}} </p>
+{{/each}}
+
+<a href="/user/login">Login</a>
+
+{{!-- SHOULD CHANGE TO THIS IF IT IS LOGGED IN --}}
+
+{{#if isLoggedUser}}
+<h3>Here is your profile information:</h3>
 
 <img src="{{user.userImage}}" alt="Profile picture">
 
 <p>Username: {{user.username}} </p>
-
-{{#if isLoggedUser}}
 
 <p>Email: {{user.email}}</p>
 <p>Job: {{user.job}}</p>
@@ -18,8 +32,6 @@
 
 <p>Comments: {{user.comments}}</p>
 
-{{/if}}
-
 <p>Please, fill the information above. This will be usefull for us to get to
   know you</p>
 
@@ -27,4 +39,8 @@
 
 <form action="/profile/{{user._id}}/delete" method="post">
    <button type="submit">Delete your profile</button>
+{{/if}}
+
 </form>
+
+
