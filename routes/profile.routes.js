@@ -19,20 +19,21 @@ router.get("/:userId", (req, res, next) => {
 });
 
 // EDIT PROFILE
-router.get("/:userId/profile-edition", (req, res, next) => {
+router.get("/:userId/profile-edition", /* fileStorage.single('userImage') */ (req, res, next) => {
     const user_id = req.params.userId;
-    UserModel.findByIdAndUpdate(user_id)
+   /*  const profilePicture = req.file.path;  */ //GET THE IMAGE
+    UserModel.findByIdAndUpdate(user_id, /* profilePicture */)
         .then((userFromDb) => {
             res.render("profile/profile-edition.hbs", {user: userFromDb});
         })
         .catch((err) => {next(err)});
 });
 
-router.post("/:userId/profile-edition", fileStorage.single('userImage'), (req, res, next) => {
+router.post("/:userId/profile-edition", /* fileStorage.single('userImage'),  */(req, res, next) => {
     const user_id = req.params.userId;
-    const userImage = req.file; //GET THE IMAGE
+    // const profilePicture = req.file.path;  //GET THE IMAGE
     const { username, email, password, fullName, dateOfBirth, sex, address, phone, job, familyStructure, comments } = req.body;
-    UserModel.findByIdAndUpdate(user_id, { username, email, password, fullName, dateOfBirth, sex, address, phone, job, familyStructure, comments }, {new: true})
+    UserModel.findByIdAndUpdate(user_id, /* profilePicture, */ { username, email, password, fullName, dateOfBirth, sex, address, phone, job, familyStructure, comments }, {new: true})
         .then((userFromDb) => {
             console.log("profile updated", userFromDb)
             res.redirect(`/profile/${userFromDb._id}`);
