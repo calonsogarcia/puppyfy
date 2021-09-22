@@ -7,11 +7,17 @@
      .container{
          background-color: #b6ebda
      }
-     
-    h2{
+    
+    h1{
+        padding: 50 0 30 0;
+        margin-top: 150;
+        text-align: center; 
+    }
+
+    h2,
+    h3{
          padding: 30 0 30 0;
-         text-align: center;
-        
+         text-align: center;  
      }
 
   

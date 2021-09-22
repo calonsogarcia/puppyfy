@@ -3,16 +3,21 @@
 <h4>Do you want to go to a dinner and don't have a puppy sitter?</h4>
 <p>Here you'll find what you need!</p>
 
-{{#each allPuppysitters}}
 
-<img src="{{this.image}}" alt ="Puppy Sitter photo">  
+<div class="container-sm">
+    <div class="row gx-5 gy-5">
+        {{#each allPuppysitters}}
+            <div class="col-12 col-sm-4 col-md-3">
+                <img src="{{this.image}}" alt ="Puppy Sitter photo">  
 
-<p>Name: {{this.name}}</p>
-<p>Address {{this.address}}</p>
-<p>Contact: {{this.contact}}</p>
+                <p>Name: {{this.name}}</p>
+                <p>Address {{this.address}}</p>
+                <p>Contact: {{this.contact}}</p>
 
-<a href="/puppy-care/{{this._id}}/partners-edition">Edit the service</a>
-<br>
-{{/each}}
+                <a href="/puppy-care/{{this._id}}/partners-edition">Edit the service</a>
+            </div>
+        {{/each}}
+    </div>
+</div>
 
 <a href="/puppy-care">Back</a>

@@ -4,17 +4,19 @@
 <h4>Would you like to learn how to be a leader to your puppy?</h4>
 <p>Here you'll find what you need!</p>
 
+<div class="container-sm">
+    <div class="row gx-5 gy-5">
+        {{#each allPuppyTrainers}}
+            <div class="col-12 col-sm-4 col-md-3">
+                <img src="{{this.image}}" alt ="Puppy trainer photo">  
 
-{{#each allPuppyTrainers}}
+                <p>Name: {{this.name}}</p>
+                <p>Address {{this.address}}</p>
+                <p>Contact: {{this.contact}}</p>
 
-<img src="{{this.image}}" alt ="Puppy trainer photo">  
-
-<p>Name: {{this.name}}</p>
-<p>Address {{this.address}}</p>
-<p>Contact: {{this.contact}}</p>
-
-<a href="/puppy-care/{{this._id}}/partners-edition">Edit the service</a>
-<br>
-{{/each}}
-
+                <a href="/puppy-care/{{this._id}}/partners-edition">Edit the service</a>
+            </div>
+        {{/each}}
+    </div>
+</div>
 <a href="/puppy-care">Back</a>
