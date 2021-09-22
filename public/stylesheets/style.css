@@ -1,23 +1,20 @@
+     body {
+         background-color: rgb(209, 228, 235);
+         margin: 0;
+     }
      
-    body{
-    background-color: rgb(209, 228, 235);
-    margin: 0;
-    }
-
-     .container{
+     .container {
          background-color: #b6ebda
      }
      
-    h2{
+     h2 {
          padding: 30 0 30 0;
          text-align: center;
-        
      }
-
-  
      
-
-
+     #mapid {
+         height: 180px;
+     }
      /*  body {
           padding: 50px;
           font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
