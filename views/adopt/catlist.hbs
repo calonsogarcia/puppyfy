@@ -2,24 +2,26 @@
 
 <h2>Here are our lovely cats </h2>
 
-{{#each allCats}}
+<div class="container-sm">
+    <div class="row gx-5 gy-5">
+        {{#each allCats}}
+            <div class="col-12 col-sm-4 col-md-3">
+                <img src="{{this.image}}" alt ="Cat photo">  
 
-<img src="{{this.image}}" alt ="Cat photo">  
+                <p>Name: {{this.name}}</p>
+                <p>Date of Birth {{this.birthDate}}</p>
+                <p>Sex: {{this.sex}}</p>
+                <p>Breed: {{this.breed}}</p>
+                <p>Colour: {{this.colour}}</p>
+                <p>Family options: {{this.familyOptions}}</p>
 
-<p>Name: {{this.name}}</p>
-<p>Date of Birth {{this.birthDate}}</p>
-<p>Sex: {{this.sex}}</p>
-<p>Breed: {{this.breed}}</p>
-<p>Colour: {{this.colour}}</p>
-<p>Family options: {{this.familyOptions}}</p>
+                <p>Comments: {{this.comments}}</p>
 
-<p>Comments: {{this.comments}}</p>
-
-<a href="/adopt/{{this._id}}/adoption-form">Adoption Form</a>
-<br>
-<br>
-
-{{/each}}
+                <a href="/adopt/{{this._id}}/adoption-form">Adoption Form</a>
+            </div>
+        {{/each}}
+    </div>
+</div>
 
 <a href="/adopt">Back</a>
 

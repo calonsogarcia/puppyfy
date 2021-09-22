@@ -1,9 +1,13 @@
-<h1>Hi!! this are our friends on Puppyfy!</h1>
-<br>
+<h2>Hi!! this are our friends on Puppyfy!</h2>
 
-{{#each allUsers}}
-<img src="{{this.userImage}}" alt="Profile picture" class="img-thumbnail">
 
-<p>Username: {{this.username}} </p>
-
-{{/each}}
+<div class="container-sm">
+    <div class="row gx-5 gy-5">
+        {{#each allUsers}}
+            <div class="col-12 col-sm-4 col-md-3">
+                <img src="{{this.userImage}}" alt="Profile picture" class="img-thumbnail">
+                <p>Username: {{this.username}} </p>
+            </div>
+        {{/each}}
+    </div>
+</div>
