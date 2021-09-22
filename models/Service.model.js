@@ -9,7 +9,10 @@ const serviceSchema = new Schema({
         name: String,
         address: String,
         contact: String,
-        image: String,
+        image: {
+            type: String,
+            default: 'https://png.pngtree.com/png-vector/20190909/ourmid/pngtree-outline-user-icon-png-image_1727916.jpg'
+        }
     },
     {
         timestamps: true,

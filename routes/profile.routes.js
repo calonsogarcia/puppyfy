@@ -3,7 +3,6 @@ const UserModel = require("../models/User.model");
 
 //require cloudinary
 const fileStorage = require('../middlewares/cloudinary');
-const User = require("../models/User.model");
 
 router.get("/profiles-list", (req, res, next) => {
     UserModel.find(req.params.username)
@@ -64,5 +63,11 @@ router.post("/:userId/delete", (req, res, next) => {
             next(err);
         });
     });
+
+
+/* router.get('/logout', (req, res, next) => {
+    req.session.destroy()
+    res.redirect('/home')
+}) */
 
 module.exports = router;

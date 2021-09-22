@@ -1,6 +1,9 @@
 const router = require("express").Router();
 const ServiceModel = require('../models/Service.model')
 
+//require cloudinary
+const fileStorage = require('../middlewares/cloudinary');
+
 router.get("/", (req, res, next) => {
     res.render("services/list.hbs");
 });
@@ -44,8 +47,9 @@ router.get("/partners-form", (req, res, next) => {
     res.render("services/partners-form.hbs");
 })
 
-router.post("/partners-form", (req, res, next) => {
-    const { name, serviceType, address, contact, image } = req.body;
+router.post("/partners-form", fileStorage.single('image'), (req, res, next) => {
+    const image = req.file.path;
+    const { name, serviceType, address, contact} = req.body;
     ServiceModel.create({ name, serviceType, address, contact, image })
         .then((service) => {
             console.log("service created", service);
@@ -64,8 +68,9 @@ router.get("/:serviceId/partners-edition", (req, res, next) => {
     
 })
 
-router.post("/:serviceId/partners-edition", (req, res, next) => {
-    const { name, serviceType, address, contact, image } = req.body;
+router.post("/:serviceId/partners-edition", fileStorage.single('image'), (req, res, next) => {
+    const image = req.file.path;
+    const { name, serviceType, address, contact } = req.body;
     ServiceModel.findByIdAndUpdate(req.params.serviceId, { name, serviceType, address, contact, image }, {new: true})
     .then((editedService) => {
         console.log("Here's the service you just edited", {editedService})
