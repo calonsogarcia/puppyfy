@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const PuppyModel = require("../models/Puppy.model");
 const AdoptionModel = require("../models/Adoption.model");
+const fileStorage = require('../middlewares/cloudinary');
 
 router.get("/", (req, res, next) => {
     res.render("adopt/list.hbs");
@@ -86,8 +87,9 @@ router.get("/give-in-adoption", (req, res, next) => {
     res.render("adopt/give-form.hbs");
 });
 
-router.post("/give-in-adoption", (req, res, next) => {
-    const { puppyType, name, birthDate, sex, colour, breed, familyOptions, image, comments} = req.body;
+router.post("/give-in-adoption", fileStorage.single('image'), (req, res, next) => {
+    const image = req.file.path;
+    const { puppyType, name, birthDate, sex, colour, breed, familyOptions, comments} = req.body;
     PuppyModel.create({ puppyType, name, birthDate, sex, colour, breed, familyOptions, image, comments })
     .then((puppy) => {
         console.log("Puppy created", { puppy });
@@ -117,9 +119,10 @@ router.get("/:puppyId/give-in-adoption/update", (req, res, next) => {
         .catch((err) => next(err))
 });
 
-router.post("/:puppyId/give-in-adoption/update", (req, res, next) => {
+router.post("/:puppyId/give-in-adoption/update", fileStorage.single('userImage'), (req, res, next) => {
     const puppy_id = req.params.puppyId;
-    const { puppyType, name, birthDate, sex, colour, breed, familyOptions, image, comments } = req.body;
+    const image = req.file.path;
+    const { puppyType, name, birthDate, sex, colour, breed, familyOptions, comments } = req.body;
     PuppyModel.findByIdAndUpdate( puppy_id, { puppyType, name, birthDate, sex, colour, breed, familyOptions, image, comments }, { new: true })
         .then((puppy) => {
             console.log("puppy updated", puppy);

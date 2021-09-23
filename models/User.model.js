@@ -22,7 +22,7 @@ const userSchema = new Schema({
             enum: ["Female", "Male"],
         },
         address: String,
-        phone: Number,
+        phone: String,
         job: String,
         familyStructure: String,
         userImage: {

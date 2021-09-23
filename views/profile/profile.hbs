@@ -2,33 +2,38 @@
 
 
 {{#if isLoggedUser}}
-<h2>Here is your profile information:</h2>
+  <h2>Here is your profile information:</h2>
 
-<img src="{{user.userImage}}" alt="Profile picture" >
+    <div class="container-sm">
+<div class="row gx-5 gy-5">
+      <img src="{{user.userImage}}" alt="Profile picture" class="img-fluid">
 
-<p>Username: {{user.username}} </p>
+  <div class="col-12 col-sm-4 col-md-3">
+      <p>Username: {{user.username}} </p>
 
-<p>Email: {{user.email}}</p>
-<p>Job: {{user.job}}</p>
-<p>Full name: {{user.fullName}}</p>
-<p>Date of Birth: {{user.dateOfBirth}} </p>
-<p>Sex: {{user.sex}} </p>
-<p>Job: {{user.job}}</p>
-<p>Address: {{user.adress}}</p>
-<p>Phone: {{user.phone}}</p>
-<p>Family structure: {{user.familyStructure}}</p>
+      <p>Email: {{user.email}}</p>
+      <p>Job: {{user.job}}</p>
+      <p>Full name: {{user.fullName}}</p>
+      <p>Date of Birth: {{user.dateOfBirth}} </p>
+      <p>Sex: {{user.sex}} </p>
+      <p>Job: {{user.job}}</p>
+      <p>Address: {{user.adress}}</p>
+      <p>Phone: {{user.phone}}</p>
+      <p>Family structure: {{user.familyStructure}}</p>
 
-<p>Comments: {{user.comments}}</p>
+      <p>Comments: {{user.comments}}</p>
+      </div>
+</div>
 
-<p>Please, fill the information above. This will be usefull for us to get to
-  know you</p>
+      <p>Please, fill the information above. This will be usefull for us to get to know you</p>
 
-<a href="/profile/{{user._id}}/profile-edition">Edit your profile</a>
+      <a href="/profile/{{user._id}}/profile-edition">Edit your profile</a>
 
-<form action="/profile/{{user._id}}/delete" method="post">
-   <button type="submit">Delete your profile</button>
+      <form action="/profile/{{user._id}}/delete" method="post">
+        <button type="submit">Delete your profile</button>
+      </form>
+    </div>
 {{/if}}
 
-</form>
 
 
