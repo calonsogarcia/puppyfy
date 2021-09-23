@@ -1,4 +1,4 @@
-document.addEventListener(
+/* document.addEventListener(
     "DOMContentLoaded",
     () => {
         console.log("map script loaded!");
@@ -17,4 +17,4 @@ document.addEventListener(
         marker.bindPopup("<b>Hello</b>").openPopup();
     },
     false
-);
+); */
