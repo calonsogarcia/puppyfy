@@ -14,8 +14,14 @@
      }
      
      h2,
-     h3 {
+     h3,
+     h5 {
          padding: 30 0 30 0;
+         text-align: center;
+     }
+     
+     h4 {
+         padding: 10 0 30 0;
          text-align: center;
      }
      
@@ -23,6 +29,9 @@
          height: 280px;
          width: 400px;
      }
+     /*     .container-sm form {
+         margin-left: 450;
+     } */
      /*  body {
           padding: 50px;
           font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
