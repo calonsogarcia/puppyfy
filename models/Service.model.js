@@ -6,6 +6,10 @@ const serviceSchema = new Schema({
             required: true,
             enum: ['PuppySitter', 'Hairdresser', "PuppyTrainer", "Veterinary"],
         },
+        user_id: {
+            type: Schema.Types.ObjectId,
+            ref: "User",
+        },
         name: String,
         address: String,
         contact: String,

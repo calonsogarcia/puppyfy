@@ -14,7 +14,6 @@ router.get("/profiles-list", (req, res, next) => {
         });
 })
 
-
 router.get("/:userId", (req, res, next) => {
     const user_id = req.params.userId;
     const logged_id = req.session.loggedInUser._id;
