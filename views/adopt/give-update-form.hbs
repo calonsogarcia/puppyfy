@@ -1,6 +1,6 @@
 <h2>Update your Puppy</h2>
 
-<form action="/adopt/{{puppy._id}}/give-in-adoption/update" method="post">
+<form action="/adopt/{{puppy._id}}/give-in-adoption/update" method="post" enctype="multipart/form-data">
   <label for="typeOfAnimal">Type of animal:</label>
   <input type="text" name="typeOfAnimal" value="{{puppy.puppyType}}">
 
