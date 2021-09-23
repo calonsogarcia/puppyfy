@@ -11,14 +11,9 @@
             <p>Address {{this.address}}</p>
             <p>Contact: {{this.contact}}</p>
 
-            <p>user_id: {{this.user_id}}</p>
-            <p>loggedInUserId: {{../loggedInUserId}}</p>
-            {{#ifCond this.user_id "==" ../loggedInUserId}}
-               Values are equal!
-            {{else}}
-               Values are different!
-            {{/ifCond}}
+            {{#compareIds this.user_id ../loggedInUserId}}
                <a href="/puppy-care/{{this._id}}/partners-edition">Edit the service</a>
+            {{/compareIds}}
          </div>
       {{/each}}
    </div>

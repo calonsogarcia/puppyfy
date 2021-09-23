@@ -34,24 +34,31 @@
         background-image: url(/images/adoptdog.jpeg);
         background-size: cover;
         color: white;
-        height: 7rem;
-        width: 15rem;
+        height: 10rem;
+        width: 20rem;
+        padding: 50;
      }
 
      .btn-primary{
         background-image: url(/images/veterinary.jpeg);
         background-size: cover;
         color: white;
-        height: 7rem;
-        width: 15rem;
+        height: 10rem;
+        width: 20rem;
+        padding: 50;
      }
 
      .btn-secondary{
         background-image: url(/images/adoptdog.jpeg);
         background-size: cover;
         color: white;
-        height: 7rem;
-        width: 15rem;
+        height: 10rem;
+        width: 20rem;
+        padding: 50;
+     }
+
+     .btn-success {
+         margin-top: 30;
      }
 
      /*  body {

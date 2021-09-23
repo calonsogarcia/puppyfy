@@ -12,6 +12,8 @@ const express = require("express");
 // Handles the handlebars
 // https://www.npmjs.com/package/hbs
 const hbs = require("hbs");
+// Require handlebars and just-handlebars-helpers
+const H = require('just-handlebars-helpers');
 
 const app = express();
 
@@ -24,28 +26,17 @@ const capitalized = (string) => string[0].toUpperCase() + string.slice(1).toLowe
 
 app.locals.title = `${capitalized(projectName)} created with IronLauncher`;
 
-hbs.registerHelper('ifCond', function (v1, operator, v2, options) {
-  switch (operator) {
-      case '==':
-          return (v1 == v2) ? options.fn(this) : options.inverse(this);
-      case '===':
-          return (v1 === v2) ? options.fn(this) : options.inverse(this);
-      case '!==':
-          return (v1 !== v2) ? options.fn(this) : options.inverse(this);
-      case '<':
-          return (v1 < v2) ? options.fn(this) : options.inverse(this);
-      case '<=':
-          return (v1 <= v2) ? options.fn(this) : options.inverse(this);
-      case '>':
-          return (v1 > v2) ? options.fn(this) : options.inverse(this);
-      case '>=':
-          return (v1 >= v2) ? options.fn(this) : options.inverse(this);
-      case '&&':
-          return (v1 && v2) ? options.fn(this) : options.inverse(this);
-      case '||':
-          return (v1 || v2) ? options.fn(this) : options.inverse(this);
-      default:
-          return options.inverse(this);
+// Register just-handlebars-helpers with handlebars
+H.registerHelpers(hbs);
+
+hbs.registerHelper('compareIds', function(lvalue, rvalue, options) {
+  if (arguments.length < 3) {
+    throw new Error("Handlebars Helper equal needs 2 parameters");
+  }
+  if(JSON.stringify(lvalue)!=JSON.stringify(rvalue)) {
+      return options.inverse(this);
+  } else {
+      return options.fn(this);
   }
 });
 

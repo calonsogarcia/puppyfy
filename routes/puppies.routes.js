@@ -88,7 +88,10 @@ router.get("/give-in-adoption", (req, res, next) => {
 });
 
 router.post("/give-in-adoption", fileStorage.single('image'), (req, res, next) => {
-    const image = req.file.path;
+    let image;
+    if(req.file){
+      image = req.file.path;
+    }
     const { puppyType, name, birthDate, sex, colour, breed, familyOptions, comments} = req.body;
     PuppyModel.create({ puppyType, name, birthDate, sex, colour, breed, familyOptions, image, comments })
     .then((puppy) => {
