@@ -11,7 +11,14 @@
             <p>Address {{this.address}}</p>
             <p>Contact: {{this.contact}}</p>
 
-            <a href="/puppy-care/{{this._id}}/partners-edition">Edit the service</a>
+            <p>user_id: {{this.user_id}}</p>
+            <p>loggedInUserId: {{../loggedInUserId}}</p>
+            {{#ifCond this.user_id "==" ../loggedInUserId}}
+               Values are equal!
+            {{else}}
+               Values are different!
+            {{/ifCond}}
+               <a href="/puppy-care/{{this._id}}/partners-edition">Edit the service</a>
          </div>
       {{/each}}
    </div>

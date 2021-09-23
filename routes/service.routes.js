@@ -48,9 +48,17 @@ router.get("/partners-form", (req, res, next) => {
 })
 
 router.post("/partners-form", fileStorage.single('image'), (req, res, next) => {
+    let user_id;
+    if (req.session.loggedInUser) {
+        user_id = req.session.loggedInUser._id;
+    }
+    if (!user_id) {
+        res.redirect(`/puppy-care/partners-form`);
+        return;
+    }
     const image = req.file.path;
     const { name, serviceType, address, contact} = req.body;
-    ServiceModel.create({ name, serviceType, address, contact, image })
+    ServiceModel.create({ name, serviceType, address, contact, image, user_id })
         .then((service) => {
             console.log("service created", service);
             res.redirect("/home")
