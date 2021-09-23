@@ -14,7 +14,6 @@ router.get("/profiles-list", (req, res, next) => {
         });
     })
 
-
 router.get("/:userId", (req, res, next) => {
     const user_id = req.params.userId;
     const logged_id = req.session.loggedInUser._id;
@@ -63,11 +62,5 @@ router.post("/:userId/delete", (req, res, next) => {
             next(err);
         });
     });
-
-
-/* router.get('/logout', (req, res, next) => {
-    req.session.destroy()
-    res.redirect('/home')
-}) */
 
 module.exports = router;

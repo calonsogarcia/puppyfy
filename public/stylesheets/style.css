@@ -22,6 +22,31 @@
      #mapid {
          height: 180px;
      }
+
+     .btn-warning{
+        background-image: url(/images/adoptdog.jpeg);
+        background-size: cover;
+        color: white;
+        height: 7rem;
+        width: 15rem;
+     }
+
+     .btn-primary{
+        background-image: url(/images/veterinary.jpeg);
+        background-size: cover;
+        color: black;
+        height: 7rem;
+        width: 15rem;
+     }
+
+     .btn-secondary{
+        background-image: url(/images/adoptdog.jpeg);
+        background-size: cover;
+        color: white;
+        height: 7rem;
+        width: 15rem;
+     }
+
      /*  body {
           padding: 50px;
           font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
