@@ -29,38 +29,42 @@
          height: 280px;
          width: 400px;
      }
-
-     .btn-warning{
-        background-image: url(/images/adoptdog.jpeg);
-        background-size: cover;
-        color: white;
-        height: 10rem;
-        width: 20rem;
-        padding: 50;
+     
+     .btn-warning {
+         background-image: url(/images/adoptdog.jpeg);
+         background-size: cover;
+         color: white;
+         height: 10rem;
+         width: 20rem;
+         padding: 50;
      }
-
-     .btn-primary{
-        background-image: url(/images/veterinary.jpeg);
-        background-size: cover;
-        color: white;
-        height: 10rem;
-        width: 20rem;
-        padding: 50;
+     
+     .btn-primary {
+         background-image: url(/images/vetwithbg.jpeg);
+         background-size: cover;
+         color: white;
+         height: 10rem;
+         width: 20rem;
+         padding: 50;
      }
-
-     .btn-secondary{
-        background-image: url(/images/adoptdog.jpeg);
-        background-size: cover;
-        color: white;
-        height: 10rem;
-        width: 20rem;
-        padding: 50;
+     
+     .btn-secondary {
+         background-image: url(/images/puppycarepresen.jpeg);
+         background-size: cover;
+         color: white;
+         height: 10rem;
+         width: 20rem;
+         padding: 50;
      }
-
+     
      .btn-success {
          margin-top: 30;
      }
-
+     
+     .img-fluid {
+         height: 200;
+         width: 250
+     }
      /*  body {
           padding: 50px;
           font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
