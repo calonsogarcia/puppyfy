@@ -56,7 +56,10 @@ router.post("/partners-form", fileStorage.single('image'), (req, res, next) => {
         res.redirect(`/puppy-care/partners-form`);
         return;
     }
-    const image = req.file.path;
+    let image;
+    if(req.file){
+      image = req.file.path;
+    }
     const { name, serviceType, address, contact} = req.body;
     ServiceModel.create({ name, serviceType, address, contact, image, user_id })
         .then((service) => {
@@ -77,7 +80,10 @@ router.get("/:serviceId/partners-edition", (req, res, next) => {
 })
 
 router.post("/:serviceId/partners-edition", fileStorage.single('image'), (req, res, next) => {
-    const image = req.file.path;
+    let image;
+    if(req.file){
+      image = req.file.path;
+    }
     const { name, serviceType, address, contact } = req.body;
     ServiceModel.findByIdAndUpdate(req.params.serviceId, { name, serviceType, address, contact, image }, {new: true})
     .then((editedService) => {

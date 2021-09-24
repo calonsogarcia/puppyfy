@@ -17,6 +17,11 @@
                     <p>Comments: {{this.comments}}</p>
 
                     <a href="/adopt/{{this._id}}/adoption-form">Adoption Form</a>
+                    <br>
+
+                    {{#compareIds this.user_id ../loggedInUserId}}
+                        <a href="/adopt/{{this._id}}/give-in-adoption/update">Do you want to change any information or delete the formulary?</a>
+                    {{/compareIds}}
                 </div>
             {{/each}}
         </div>

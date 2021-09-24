@@ -40,7 +40,10 @@ router.get("/:userId/profile-edition", (req, res, next) => {
 
 router.post("/:userId/profile-edition", fileStorage.single('userImage'), (req, res, next) => {
     const user_id = req.params.userId;
-    const userImage = req.file.path;
+    let userImage;
+    if(req.file){
+      userImage = req.file.path;
+    }
     const { username, email, password, fullName, dateOfBirth, sex, address, phone, job, familyStructure, comments } = req.body;
     UserModel.findByIdAndUpdate(user_id, { username, email, password, fullName, dateOfBirth, sex, address, phone, job, familyStructure, comments, userImage }, { new: true })
         .then((userFromDb) => {
