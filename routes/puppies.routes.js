@@ -92,8 +92,16 @@ router.post("/give-in-adoption", fileStorage.single('image'), (req, res, next) =
     if(req.file){
       image = req.file.path;
     }
+    let user_id;
+    if (req.session.loggedInUser) {
+        user_id = req.session.loggedInUser._id;
+    }
+    if (!user_id) {
+        res.redirect(`/puppy-care/give-in-adopotion`);
+        return;
+    }
     const { puppyType, name, birthDate, sex, colour, breed, familyOptions, comments} = req.body;
-    PuppyModel.create({ puppyType, name, birthDate, sex, colour, breed, familyOptions, image, comments })
+    PuppyModel.create({ puppyType, name, birthDate, sex, colour, breed, familyOptions, image, comments, user_id })
     .then((puppy) => {
         console.log("Puppy created", { puppy });
         res.redirect(`/adopt/${puppy._id}/give-in-adoption/print`);

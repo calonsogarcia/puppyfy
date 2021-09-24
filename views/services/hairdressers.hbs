@@ -15,7 +15,6 @@
 
                 <div class="thumbnail"><!--when the photo is charged it should be shown beside the text--->
                    
-                   
                     {{#each allHairdressers}}
                         <div class="col-sm-6 col-md-6 col-xs-6">
                             <img src="{{this.image}}" alt ="Hairdresser photo">  
@@ -28,8 +27,9 @@
                             <p>Contact: {{this.contact}}</p> 
                         </div>
                         
-                           <a href="/puppy-care/{{this._id}}/partners-edition">Edit the service</a>
-                        </div>
+                            {{#compareIds this.user_id ../loggedInUserId}}
+                                <a href="/puppy-care/{{this._id}}/partners-edition">Edit the service</a>
+                            {{/compareIds}}
                     {{/each}}
 
 

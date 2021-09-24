@@ -1,27 +1,14 @@
 <div class="container-sm">
   <h2>Would you like to change any information about the service?</h2>
   <div class="d-flex justify-content-center">
-    <form
-      action="/puppy-care/{{service._id}}/partners-edition"
-      method="post"
-      enctype="multipart/form-data"
-    >
+    <form action="/puppy-care/{{service._id}}/partners-edition" method="post" enctype="multipart/form-data">
       <div class="form-row">
         <label for="name">Name</label>
-        <input
-          type="text"
-          name="name"
-          class="form-control"
-          value="{{service.name}}"
-        />
+        <input type="text" name="name" class="form-control" value="{{service.name}}"/>
       </div>
       <div class="form-row">
         <label for="serviceType">What kind of business do you have?</label>
-        <select
-          name="serviceType"
-          class="form-control"
-          value="{{service.serviceType}}"
-        >
+        <select name="serviceType" class="form-control" value="{{service.serviceType}}" >
           <option>Select...</option>
           <option value="PuppySitter">Puppysitter</option>
           <option value="Hairdresser">Hairdresser</option>
@@ -56,23 +43,17 @@
           value="{{service.image}}"
         />
       </div>
-      <br />
-      <br />
+
 
       <button type="submit" class="btn btn-success">Update the service</button>
 
     </form>
   </div>
-  <br />
-  <br />
+
   <div class="d-flex justify-content-center">
 
-    <form
-      action="/puppy-care/{{service._id}}/partners-edition/delete"
-      method="post"
-    >
-      <button type="submit" class="btn btn-success">I don't want to offer this
-        service anymore.</button>
+    <form  action="/puppy-care/{{service._id}}/partners-edition/delete"  method="post" >
+      <button type="submit" class="btn btn-success">I don't want to offer this service anymore.</button>
     </form>
 
   </div>

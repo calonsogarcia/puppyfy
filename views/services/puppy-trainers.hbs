@@ -14,7 +14,9 @@
                 <p>Address {{this.address}}</p>
                 <p>Contact: {{this.contact}}</p>
 
-                <a href="/puppy-care/{{this._id}}/partners-edition">Edit the service</a>
+                {{#compareIds this.user_id ../loggedInUserId}}
+                 <a href="/puppy-care/{{this._id}}/partners-edition">Edit the service</a>
+                {{/compareIds}}
             </div>
         {{/each}}
     </div>
