@@ -46,7 +46,6 @@
     }
     
     
-    .btn-warning,
     .btn-primary,
     .btn-secondary{ 
         background-size: cover;
@@ -80,16 +79,29 @@
     .puppy-trainers{
         background-image: url(/images/puppy-trainer.jpeg);
     }
+
+    .dog{
+        background-image: url(/images/adoptdog.jpeg);
+    }
+
+    .cat{
+        background-image: url(/images/adoptcat.png);
+    }
+
+    .others{
+        background-image: url(/images/adoptothers.jpeg);
+    }
     
     .btn-success {
         margin-top: 30;
     }
     
-    .img-fluid {
+   /*  .img-fluid {
         height: 200;
-        width: 250
-    }
+        width: 220;
+    } */
     
+    .card-img,
     .img{
         height: 200;
         width: 200;

@@ -16,6 +16,7 @@ router.get("/profiles-list", (req, res, next) => {
 
 router.get("/:userId", (req, res, next) => {
     const user_id = req.params.userId;
+    console.log(req.session.loggedInUser)
     const logged_id = req.session.loggedInUser._id;
     const isLoggedUser = user_id === logged_id;
     UserModel.findById(user_id)

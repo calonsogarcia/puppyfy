@@ -20,8 +20,8 @@
                     <a href="/adopt/{{this._id}}/adoption-form">Adoption Form</a>
 
 
-                    {{!-- <p>UserId: {{user._id}}</p>
-                    <p>User looged in: {{loggedInUserId}}</p> --}}
+                    {{!-- <p>UserId: {{this.user_id}}</p>
+                    <p>User looged in: {{../loggedInUserId}}</p> --}}
                     {{#compareIds this.user_id ../loggedInUserId}}
                         <a href="/adopt/{{this._id}}/give-in-adoption/update">Do you want to change any information or delete the formulary?</a>
                     {{/compareIds}}
