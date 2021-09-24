@@ -1,31 +1,29 @@
 
-
-<h2>Here are our lovely puppies from any other class</h2>
-
 <div class="container-sm">
-    <div class="row gx-5 gy-5">
-        {{#each allOthers}}
-            <div class="col-12 col-sm-4 col-md-3">
+    <h3>Here are our lovely puppies from any other class</h3>
+        <div class="row gx-5 gy-5">
+            {{#each allOthers}}
+                <div class="col-12 col-sm-4 col-md-3">
 
-                <img src="{{this.image}}" alt ="Other type of animal photo">  
+                    <img src="{{this.image}}" alt ="Other type of animal photo" class="img" >  
 
-                <p>Name: {{this.name}}</p>
-                <p>Date of Birth {{this.birthDate}}</p>
-                <p>Sex: {{this.sex}}</p>
-                <p>Breed: {{this.breed}}</p>
-                <p>Colour: {{this.colour}}</p>
-                <p>Family options: {{this.familyOptions}}</p>
+                    <p>Name: {{this.name}}</p>
+                    <p>Date of Birth {{this.birthDate}}</p>
+                    <p>Sex: {{this.sex}}</p>
+                    <p>Breed: {{this.breed}}</p>
+                    <p>Colour: {{this.colour}}</p>
+                    <p>Family options: {{this.familyOptions}}</p>
 
-                <p>Comments: {{this.comments}}</p>
+                    <p>Comments: {{this.comments}}</p>
 
-                <a href="/adopt/{{this._id}}/adoption-form">Adoption Form</a>
-            </div>
-        {{/each}}
-    </div>
+                    <a href="/adopt/{{this._id}}/adoption-form">Adoption Form</a>
+                </div>
+            {{/each}}
+        </div>
+    <a href="/adopt">Back</a>
 </div>
 
 
-<a href="/adopt">Back</a>
 
 
 

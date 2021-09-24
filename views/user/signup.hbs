@@ -1,22 +1,27 @@
 
-  <h2>Would you like to be part of our family?</h2>
+<div class="container-sm">
 
-<div class="d-flex justify-content-center">
-  <form action="/user/signup" method="post">
+  <h3>Would you like to be part of our family?</h3>
 
-    <label for="username">Username</label>
-    <input type="text" name="username" autocomplete="off"/>
+    <div class="d-flex justify-content-center">
+      
+      <form action="/user/signup" method="post">
+        <label for="username">Username</label>
+        <input type="text" name="username" autocomplete="off"/>
 
-    <label for="email">Email</label>
-    <input type="email" name="email" autocomplete="off"/>
+        <label for="email">Email</label>
+        <input type="email" name="email" autocomplete="off"/>
 
-    <label for="password">Password</label>
-    <input type="password" name="password" autocomplete="off"/>
+        <label for="password">Password</label>
+        <input type="password" name="password" autocomplete="off"/>
 
-    <button type="submit">Create new account</button>
+        <button type="submit">Create new account</button>
+      </form>
+      
+      <p>{{errorMessage}}</p>
+      
+    </div>
 
-  </form>
-  
-  <p>{{errorMessage}}</p>
+  <a href="/home">Back to home</a>
+
 </div>
-<a href="/home">Back to home</a>

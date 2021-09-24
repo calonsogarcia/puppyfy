@@ -19,331 +19,84 @@
          padding: 30 0 30 0;
          text-align: center;
      }
+
+    h2{
+        font-size: 4rem;
+    }
+
+    h3{
+        font-size: 2.5rem;
+    }
      
      h4 {
          padding: 10 0 30 0;
          text-align: center;
      }
-     
-     #mapid {
-         height: 280px;
-         width: 400px;
-     }
-     
-     .btn-warning {
-         background-image: url(/images/adoptdog.jpeg);
-         background-size: cover;
-         color: white;
-         height: 10rem;
-         width: 20rem;
-         padding: 4rem;
-     }
-     
-     .btn-primary {
-         background-image: url(/images/vetwithbg.jpeg);
-         background-size: cover;
-         color: white;
-         height: 10rem;
-         width: 20rem;
-         padding: 4rem;
-     }
-     
-     .btn-secondary {
-         background-image: url(/images/puppycarepresen.jpeg);
-         background-size: cover;
-         color: white;
-         height: 10rem;
-         width: 20rem;
-         padding: 4rem;
-     }
-     
-     .btn-success {
-         margin-top: 30;
-     }
-     
-     .img-fluid {
-         height: 200;
-         width: 250
-     }
-     /*  body {
-          padding: 50px;
-          font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-        
-      }
-      
-      a {
-          color: rgb(12, 70, 95);
-          margin: 5px;
-      }
-      
-      h1 {
-          size: 15px;
-          color: rgb(12, 70, 95);
-          margin-top: 3px;
-      }
-      
-      h2 {
-          size: 14.5px;
-          color: rgb(12, 70, 95);
-          margin-top: 10px;
-          padding: 30px;
-      }
-      
-      h3 {
-          size: 14px;
-          color: rgb(14, 66, 89);
-          margin-top: 3px;
-      }
-      
-      h4 {
-          size: 13px;
-          color: rgb(12, 70, 95);
-          margin-top: 3px;
-      }
-      
-      h5 {
-          size: 14px;
-          color: rgb(12, 70, 95);
-          line-height: 20px;
-          margin-top: 3px;
-      }
-      
-      .navbar {
-          padding: 30px;
-          background-color: rgb(242, 240, 231);
-          display: flex;
-          align-items: center;
-          justify-content: flex-end;
-          flex-flow: row wrap;
-          margin: 0 25 0 25px;
-      }
-      
-      .home {
-          display: flex;
-          text-align: center;
-          justify-content: center;
-          font-size: 40px;
-          background-image: url("../images/Huella puppyfy.png");
-          background-size: 600px;
-          height: 300px;
-          margin: 30px;
-          margin-top: 50px;
-      }
-      
-      .buttons {
-          display: flex;
-          flex-flow: row wrap;
-          align-items: center;
-          justify-content: center;
-      }
-      
-      .buttons a {
-          color: rgb(12, 70, 95);
-          font-weight: 900;
-      }
-      
-      .homebutton {
-          padding: 50px;
-          margin-left: 30px;
-          align-items: center;
-      }
-      
-      .homebuttonone {
-          padding: 70px;
-          margin: 10px;
-          background-image: url("../images/Huella puppyfy.png");
-          background-size: cover;
-      }
-      
-      .homebuttontwo {
-          padding: 70px;
-          margin: 10px;
-          background-image: url("../images/variouspets.jpeg");
-          background-size: cover;
-      }
-      
-      .homebuttonthree {
-          padding: 70px;
-          margin: 10px;
-          background-image: url("../images/puppycare.jpeg");
-          background-size: cover;
-      }
-      
-      .homebuttonfour {
-          padding: 70px;
-          margin: 10px;
-          background-image: url("../images/veterinary.jpeg");
-          background-size: cover;
-      }
-      
-      .homebuttonfive {
-          padding: 70px;
-          margin: 10px;
-          background-image: url("../images/Huella puppyfy.png");
-          background-size: cover;
-      }
-      
-      .about {
-          padding: 40px;
-      }
-      
-      #adopt {
-          display: flex;
-          flex-flow: row wrap;
-      }
-      
-      .adopt h1 {
-          padding: 30px;
-          margin-top: 20px;
-      }
-      
-      .adopt a {
-          display: flex;
-          align-items: flex-end;
-          justify-content: center;
-      }
-      
-      .blocks {
-          display: flex;
-          flex-flow: row wrap;
-          padding: 30px;
-      }
-      
-      .blockdog img {
-          margin-top: 20px;
-          padding: 20px;
-          height: 200px;
-          width: 300px;
-      }
-      
-      .blockcat img {
-          margin-top: 20px;
-          padding: 20px;
-          height: 200px;
-          width: 300px;
-      }
-      
-      .blockothers img {
-          margin-top: 20px;
-          padding: 20px;
-          height: 200px;
-          width: 300px;
-      }
-      
-      .adopt a {
-          display: flex;
-          align-items: flex-end;
-      }
-      
-      .services {
-          display: flex;
-          flex-flow: row wrap;
-      }
-      
-      .services a {
-          display: flex;
-          align-items: flex-end;
-          justify-content: center;
-      }
-      
-      .titleservices {
-          padding: 30px;
-          margin-top: 20px;
-      }
-      
-      .petservices {
-          display: flex;
-          flex-flow: row wrap;
-          padding: 30px;
-          justify-content: center;
-          align-items: center;
-          margin-top: 100px;
-      }
-      
-      .hairdresser img {
-          margin-top: 20px;
-          padding: 20px;
-          height: 200px;
-          width: 300px;
-      }
-      
-      .puppysitter img {
-          margin-top: 20px;
-          padding: 20px;
-          height: 200px;
-          width: 200px;
-      }
-      
-      .pettrainer img {
-          margin-top: 20px;
-          padding: 20px;
-          height: 200px;
-          width: 200px;
-      }
-      
-      .link-services {
-          display: flex;
-          justify-content: flex-start;
-          align-items: flex-end;
-          flex-direction: row;
-          margin-left: -850px;
-      }
-      
-      .listdog {
-          padding: 30px;
-      }
-      
-      .listdog img {
-          height: 300px;
-          width: 400px;
-          margin-bottom: 20px;
-      }
-      
-      .listcat {
-          padding: 30px;
-      }
-      
-      .listcat img {
-          height: 300px;
-          width: 400px;
-          margin-bottom: 20px;
-      }
-      
-      .otherlist {
-          padding: 30px;
-      }
-      
-      .otherlist img {
-          height: 300px;
-          width: 400px;
-          margin-bottom: 20px;
-      }
-      
-      .login {
-          padding: 30px;
-      }
-      
-      .signup {
-          padding: 30px;
-      }
-      
-      .adoption-form {
-          padding: 30px;
-          line-height: 35px;
-      }
-      
-      .give {
-          padding: 30px;
-          line-height: 35px;
-      }
-      
-      .give-form {
-          display: flex;
-          flex-direction: column;
-          width: 800px;
-      }
-      
-      .give button {
-          background-color: rgb(12, 70, 95);
-          color: white;
-      } */
+
+    .card{
+        background-color:  rgb(209, 228, 235);
+        border-color:  rgb(209, 228, 235);
+        margin: 3rem 0 5rem 4rem;
+        padding: 2rem;
+    }
+
+    .h1{
+       text-align: center;
+       font-size: 4.5rem;
+    }
+    
+    
+    .btn-warning,
+    .btn-primary,
+    .btn-secondary{ 
+        background-size: cover;
+        font-weight: 600;
+        font-size: 1.5rem;
+        height: 10rem;
+        width: 20rem;
+        padding: 4rem;
+    }
+    
+    .adopt{
+        background-image: url(/images/adoptdog.jpeg);
+    }
+    
+    .puppy-care {
+        background-image: url(/images/puppycarepresen.jpeg);
+    }
+    
+    .veterinary{
+        background-image: url(/images/vetwithbg.jpeg);
+    }
+    
+    .haidressers{
+        background-image: url(/images/hairdresser.jpeg);
+    }
+    
+    .puppysitters{
+        background-image: url(/images/puppysitter.jpeg);
+    }
+    
+    .puppy-trainers{
+        background-image: url(/images/puppy-trainer.jpeg);
+    }
+    
+    .btn-success {
+        margin-top: 30;
+    }
+    
+    .img-fluid {
+        height: 200;
+        width: 250
+    }
+    
+    .img{
+        height: 200;
+        width: 200;
+    }
+    
+  /*   #mapid {
+        height: 280px;
+        width: 400px;
+    } */
+    

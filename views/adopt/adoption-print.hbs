@@ -1,20 +1,22 @@
  
-<h2>Adoption formulary</h2>
+<div class="container-sm">
+  <h3>Adoption formulary</h3>
 
 
-  <p>Name:  {{puppy.name}}</p>
-  <p>Type of animal:  {{puppy.puppyType}}</p>
-  <p>Date of birth:  {{puppy.birthDate}}</p>
-  <p>Sex:  {{puppy.sex}}</p>
-  <p>Breed:  {{puppy.breed}}</p>
-  <p>Colour:  {{puppy.colour}}</p>
-  <p>Family options:  {{puppy.familyOptions}}</p>
-  <p>Photo:  {{puppy.image}}</p>
+    <p>Name:  {{puppy.name}}</p>
+    <p>Type of animal:  {{puppy.puppyType}}</p>
+    <p>Date of birth:  {{puppy.birthDate}}</p>
+    <p>Sex:  {{puppy.sex}}</p>
+    <p>Breed:  {{puppy.breed}}</p>
+    <p>Colour:  {{puppy.colour}}</p>
+    <p>Family options:  {{puppy.familyOptions}}</p>
+    <p>Photo:  {{puppy.image}}</p>
 
-  <p>Comments:  {{puppy.comments}}</p>
+    <p>Comments:  {{puppy.comments}}</p>
 
 
- <h3>Print</h3>
- <form action="/adopt/{{adoption_id}}/delete" method="post">
-   <button type="submit">I don't want to adopt this pet anymore.</button>
- </form>
+  <form action="/adopt/{{adoption_id}}/delete" method="post">
+    <button type="submit">I don't want to adopt this pet anymore.</button>
+  </form>
+
+</div>

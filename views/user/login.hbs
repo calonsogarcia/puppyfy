@@ -1,18 +1,24 @@
 
-  <h2>Hi! Nice to have you here again!</h2>
-<div class="d-flex justify-content-center">
-  <form action="/user/login" method="post">
+<div class="container-sm">
 
-    <label for="username">Username</label>
-    <input type="text" name="username" value="carol"/>
+  <h3>Hi! Nice to have you here again!</h3>
 
-    <label for="password">Password</label>
-    <input type="password" name="password" value="123456Ss!"/>
+    <div class="d-flex justify-content-center">
 
-    <button type="submit">Enter to your space</button>
-  </form>
+      <form action="/user/login" method="post">
+        <label for="username">Username</label>
+        <input type="text" name="username" value="carol"/>
 
+        <label for="password">Password</label>
+        <input type="password" name="password" value="123456Ss!"/>
+
+        <button type="submit">Enter to your space</button>
+      </form>
+
+      <p>{{errorMessage}}</p>
       
-  <p>{{errorMessage}}</p>
+    </div>
+
+  <a href="/home">Back to home</a>
+
 </div>
-<a href="/home">Back to home</a>
