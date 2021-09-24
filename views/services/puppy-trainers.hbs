@@ -1,10 +1,8 @@
 
-<h2>Puppy trainers</h2>
-
-<h4>Would you like to learn how to be a leader to your puppy?</h4>
-<p>Here you'll find what you need!</p>
-
 <div class="container-sm">
+    <h3>Puppy trainers</h3>
+    <h4>Would you like to learn how to be a leader to your puppy?</h4>
+
     <div class="row gx-5 gy-5">
         {{#each allPuppyTrainers}}
             <div class="col-12 col-sm-4 col-md-3">
@@ -14,9 +12,11 @@
                 <p>Address {{this.address}}</p>
                 <p>Contact: {{this.contact}}</p>
 
+                {{#compareIds this.user_id ../loggedInUserId}}
                 <a href="/puppy-care/{{this._id}}/partners-edition">Edit the service</a>
+                {{/compareIds}}
             </div>
         {{/each}}
     </div>
+    <a href="/puppy-care">Back</a>
 </div>
-<a href="/puppy-care">Back</a>

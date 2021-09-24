@@ -1,57 +1,55 @@
-<h2>Update your Puppy</h2>
-  <div class="container-sm">
-    <div class="d-flex justify-content-center">
-      <form action="/adopt/{{puppy._id}}/give-in-adoption/update" method="post" enctype="multipart/form-data">
-       
-       <div class="form-row">
-        <label for="typeOfAnimal">Type of animal:</label>
-        <input type="text" name="typeOfAnimal" class="form-control" value="{{puppy.puppyType}}">
-      </div>
-      <div class="form-row">
-        <label for="name">Name</label>
-        <input type="text" name="name" class="form-control" value="{{puppy.name}}">
-      </div>
-      <div class="form-row">
-        <label for="birthDate">Date of Birth</label>
-        <input type="date" name="birthDate" class="form-control" value="{{puppy.birthDate}}">
-      </div>
-      <div class="form-row">
-        <label for="sex">Sex</label>
-        <input type="text" name="sex" class="form-control"value="{{puppy.sex}}">
-      </div>
-      <div class="form-row">
-        <label for="breed">Breed:</label>
-        <input type="text" name="breed" class="form-control"value="{{puppy.breed}}">
-      </div>
-      <div class="form-row">  
-        <label for="colour">Colour:</label>
-        <input type="text" name="colour" class="form-control" value="{{puppy.colour}}">
-      </div>
-      <div class="form-row">
-        <label for="familyOptions">Family Options:</label>
-        <input type="text" name="familyOptions" class="form-control" value="{{puppy.familyOptions}}">
-      </div>
-      <div class="form-row">
-        <label for="image">Puppy photo:</label>
-        <input type="file" name="image" class="form-control" value="{{puppy.image}}">
-
-        <br>
-      </div>
-      <div class="form-row">
-        <label for="comments">Is there anything else you want to tell us about the puppy?</label>
-        <textarea name="comments" class="form-control" cols="30" rows="5" value="{{puppy.comments}}">{{puppy.comments}}</textarea>
-        <br>
-      </div>
+<div class="container-sm">
+  
+  <h3>Update your Puppy</h3>
       <div class="d-flex justify-content-center">
-        <button type="submit"class="btn btn-success">Update</button>
+        <form action="/adopt/{{puppy._id}}/give-in-adoption/update" method="post" enctype="multipart/form-data">
+          <div class="form-row">
+            <label for="puppyType">Type of animal:</label>
+            <input type="text" name="puppyType" class="form-control" value="{{puppy.puppyType}}">
+          </div>
+          <div class="form-row">
+            <label for="name">Name</label>
+            <input type="text" name="name" class="form-control" value="{{puppy.name}}">
+          </div>
+          <div class="form-row">
+            <label for="birthDate">Date of Birth</label>
+            <input type="date" name="birthDate" class="form-control" value="{{puppy.birthDate}}">
+          </div>
+          <div class="form-row">
+            <label for="sex">Sex</label>
+            <input type="text" name="sex" class="form-control"value="{{puppy.sex}}">
+          </div>
+          <div class="form-row">
+            <label for="breed">Breed:</label>
+            <input type="text" name="breed" class="form-control"value="{{puppy.breed}}">
+          </div>
+          <div class="form-row">  
+            <label for="colour">Colour:</label>
+            <input type="text" name="colour" class="form-control" value="{{puppy.colour}}">
+          </div>
+          <div class="form-row">
+            <label for="familyOptions">Family Options:</label>
+            <input type="text" name="familyOptions" class="form-control" value="{{puppy.familyOptions}}">
+          </div>
+          <div class="form-row">
+            <label for="image">Puppy photo:</label>
+            <input type="file" name="image" class="form-control" value="{{puppy.image}}">
+          </div>
+          <div class="form-row">
+            <label for="comments">Is there anything else you want to tell us about the puppy?</label>
+            <textarea name="comments" class="form-control" cols="30" rows="5" value="{{puppy.comments}}">{{puppy.comments}}</textarea>
+          </div>
+          <div class="d-flex justify-content-center">
+            <button type="submit"class="btn btn-success">Update</button>
+          </div>
+        </form>
       </div>
-      </form>
-    </div>
-  <div class="d-flex justify-content-center">
-      <form action="/adopt/{{puppy._id}}/give-in-adoption/delete" method="post">
-        <button type="submit" class="btn btn-success">I don't want to give this pet in adoption anymore.</button>
-      </form>
-  </div>
+      
+      <div class="d-flex justify-content-center">
+          <form action="/adopt/{{puppy._id}}/give-in-adoption/delete" method="post">
+            <button type="submit" class="btn btn-success">I don't want to give this pet in adoption anymore.</button>
+          </form>
+      </div>
 </div>
 
 

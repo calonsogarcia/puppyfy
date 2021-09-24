@@ -1,152 +1,107 @@
 <div class="container-sm">
   
-  <h2>Give in adoption Form</h2>
+  <h3>Give in adoption Form</h3>
 
-  <h3>Please, tell us more about the puppy you want to give in adoption!</h3>
-  <div class="d-flex justify-content-center">
-  <form action="/adopt/give-in-adoption" method="post" enctype="multipart/form-data">
-    <div class="form-row">
-      <div class="form-group">
-        <label for="puppyType" >Type of animal</label>
-        <select
-          name="puppyType"
-          id="exampleFormControlSelect2"
-          class="form-control"
-        >
-          <option>Select...</option>
-          <option value="Dog">Dog</option>
-          <option value="Cat">Cat</option>
-          <option value="Other">Other</option>
-        </select>
-      </div>
-      <br />
-      <div class="form-group">
-        <label for="name">Name</label>
-        <input
-          type="text"
-          name="name"
-          autocomplete="off"
-          class="form-control"
-          id="inputPassword4"
-        />
-      </div>
+  <h4>Please, tell us more about the puppy you want to give in adoption!</h4>
+    <div class="d-flex justify-content-center">
+        <form action="/adopt/give-in-adoption" method="post" enctype="multipart/form-data">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="puppyType" >Type of animal</label>
+              <select
+                name="puppyType"
+                id="exampleFormControlSelect2"
+                class="form-control"
+              >
+                <option>Select...</option>
+                <option value="Dog">Dog</option>
+                <option value="Cat">Cat</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+            <br />
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input
+                type="text"
+                name="name"
+                autocomplete="off"
+                class="form-control"
+                id="inputPassword4"
+              />
+            </div>
 
-      <div class="form-group">
-        <label for="birthDate">Date of Birth</label>
-        <input
-          type="date"
-          name="birthDate"
-          autocomplete="off"
-          required
-          class="form-control"
-          id="inputAddress"
-        />
-      </div>
-      <div class="form-group">
-        <label for="sex">Sex</label>
-        <select name="sex" id="inputState" class="form-control">
-          <option>Select...</option>
-          <option value="Female">Female</option>
-          <option value="Male">Male</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label for="breed">Breed</label>
-        <input
-          type="text"
-          name="breed"
-          autocomplete="off"
-          class="form-control"
-          id="inputCity"
-        />
-      </div>
-      <div class="form-group">
-        <label for="colour">Colour</label>
-        <input
-          type="text"
-          name="colour"
-          autocomplete="off"
-          class="form-control"
-          id="inputZip"
-        />
-      </div>
-      <div class="form-group">
-        <label for="familyOptions">Family Options</label>
-        <input
-          type="text"
-          name="familyOptions"
-          autocomplete="off"
-          placeholder="Has the puppy any brother/sister?"
-          class="form-control"
-          id="inputZip"
-        />
-      </div>
-      <br />
-      <div class="form-group">
-        <label for="image">Puppy photo</label>
-        <input type="file" name="image" class="form-control" id="inputZip" />
-      </div>
-      <br />
-      <div  class="form-group">
-        <label for="comments">Is there anything else you want to tell us about
-          the puppy?</label>
-        <textarea
-          name="comments"
-          class="form-control"
-          id="inputZip"
-          cols="30"
-          rows="5"
-          placeholder="Something you have to know about the dog/cat/bunny..."
-        ></textarea>
-      </div>
-      <br/>
-        <button type="submit" class="btn btn-success">Submit</button>
-      </div>
-  </form>
+            <div class="form-group">
+              <label for="birthDate">Date of Birth</label>
+              <input
+                type="date"
+                name="birthDate"
+                autocomplete="off"
+                required
+                class="form-control"
+                id="inputAddress"
+              />
+            </div>
+            <div class="form-group">
+              <label for="sex">Sex</label>
+              <select name="sex" id="inputState" class="form-control">
+                <option>Select...</option>
+                <option value="Female">Female</option>
+                <option value="Male">Male</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="breed">Breed</label>
+              <input
+                type="text"
+                name="breed"
+                autocomplete="off"
+                class="form-control"
+                id="inputCity"
+              />
+            </div>
+            <div class="form-group">
+              <label for="colour">Colour</label>
+              <input
+                type="text"
+                name="colour"
+                autocomplete="off"
+                class="form-control"
+                id="inputZip"
+              />
+            </div>
+            <div class="form-group">
+              <label for="familyOptions">Family Options</label>
+              <input
+                type="text"
+                name="familyOptions"
+                autocomplete="off"
+                placeholder="Has the puppy any brother/sister?"
+                class="form-control"
+                id="inputZip"
+              />
+            </div>
+            <br />
+            <div class="form-group">
+              <label for="image">Puppy photo</label>
+              <input type="file" name="image" class="form-control" id="inputZip" />
+            </div>
+            <br />
+            <div  class="form-group">
+              <label for="comments">Is there anything else you want to tell us about
+                the puppy?</label>
+              <textarea
+                name="comments"
+                class="form-control"
+                id="inputZip"
+                cols="30"
+                rows="5"
+                placeholder="Something you have to know about the dog/cat/bunny..."
+              ></textarea>
+            </div>
+            <br/>
+              <button type="submit" class="btn btn-success">Submit</button>
+          </div>
+        </form>
     </div>
-  </div>
 </div>
-{{!-- </div> --}}
-{{! <form action="/adopt/give-in-adoption" method="post">
-
-    <label for="puppyType">Type of animal</label>
-    <select name="puppyType" >
-        <option value="Dog">Dog</option>
-        <option value="Cat">Cat</option>
-        <option value="Other">Other</option>
-    </select>
-
-    <label for="name">Name</label>
-    <input type="text" name="name" autocomplete="off"/>
-
-    <label for="birthDate">Date of Birth</label>
-    <input type="date" name="birthDate" autocomplete="off" required/>
-
-    <label for="sex">Sex</label>
-     <select name="sex" >
-        <option value="Female">Female</option>
-        <option value="Male">Male</option>
-    </select>
-    <br>
-   
-    <label for="breed">Breed</label>
-    <input type="text" name="breed" autocomplete="off"/>
-
-    <label for="colour">Colour</label>
-    <input type="text" name="colour" autocomplete="off"/>
-
-    <label for="familyOptions">Family Options</label>
-    <input type="text" name="familyOptions" autocomplete="off" placeholder="Has the puppy any brother/sister? Would be ok if they are adopted toghether?"/>
-    <br>
-    
-    <label for="image">Puppy photo</label>
-    <input type="file" name="image">
-    <br>
-    
-    <label for="comments">Is there anything else you want to tell us about the puppy?</label>
-    <textarea name="comments" cols="30" rows="5" placeholder="Something you have to know about the dog/cat/bunny..."></textarea>
-    <br>
-
-    <button type="submit">Submit</button>
-</form>
- }}

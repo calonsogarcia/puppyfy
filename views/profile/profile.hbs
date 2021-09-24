@@ -1,29 +1,28 @@
 
 
 
-{{#if isLoggedUser}}
-  <h2>Here is your profile information:</h2>
+<div class="container-sm">
+  {{#if isLoggedUser}}
+      <h3>Here is your profile information:</h3>
+      
+      <div class="row gx-5 gy-5">
+        <img src="{{user.userImage}}" alt="Profile picture" class="img-fluid">
+        <div class="col-12 col-sm-4 col-md-3">
+          <p>Username: {{user.username}} </p>
 
-    <div class="container-sm">
-<div class="row gx-5 gy-5">
-      <img src="{{user.userImage}}" alt="Profile picture" class="img-fluid">
+          <p>Email: {{user.email}}</p>
+          <p>Job: {{user.job}}</p>
+          <p>Full name: {{user.fullName}}</p>
+          <p>Date of Birth: {{user.dateOfBirth}} </p>
+          <p>Sex: {{user.sex}} </p>
+          <p>Job: {{user.job}}</p>
+          <p>Address: {{user.adress}}</p>
+          <p>Phone: {{user.phone}}</p>
+          <p>Family structure: {{user.familyStructure}}</p>
 
-  <div class="col-12 col-sm-4 col-md-3">
-      <p>Username: {{user.username}} </p>
-
-      <p>Email: {{user.email}}</p>
-      <p>Job: {{user.job}}</p>
-      <p>Full name: {{user.fullName}}</p>
-      <p>Date of Birth: {{user.dateOfBirth}} </p>
-      <p>Sex: {{user.sex}} </p>
-      <p>Job: {{user.job}}</p>
-      <p>Address: {{user.adress}}</p>
-      <p>Phone: {{user.phone}}</p>
-      <p>Family structure: {{user.familyStructure}}</p>
-
-      <p>Comments: {{user.comments}}</p>
-  </div>
-</div>
+          <p>Comments: {{user.comments}}</p>
+        </div>
+      </div>
 
       <p>Please, fill the information above. This will be usefull for us to get to know you</p>
 
@@ -32,8 +31,6 @@
       <form action="/profile/{{user._id}}/delete" method="post">
         <button type="submit">Delete your profile</button>
       </form>
-    </div>
-{{/if}}
-
-
+  {{/if}}
+</div>
 

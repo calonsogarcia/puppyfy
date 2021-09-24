@@ -1,22 +1,23 @@
+
 <div class="container-sm">
-<h2>Give in adoption form</h2>
- 
-<h3>Here is the puppy you want to give in adoption!</h3>
+  <h3>Give in adoption form</h3>
+  
+  <h4>Here is the puppy you want to give in adoption!</h4>
 
-<h3> {{puppy.name}}</h3>
+  <h4> {{puppy.name}}</h4>
 
-  <p>Type of animal:  {{puppy.puppyType}}</p>
-  <p>Date of birth:  {{puppy.birthDate}}</p>
-  <p>Sex:  {{puppy.sex}}</p>
-  <p>Breed:  {{puppy.breed}}</p>
-  <p>Colour:  {{puppy.colour}}</p>
-  <p>Family options:  {{puppy.familyOptions}}</p>
-  <p>Photo:  {{puppy.image}}</p>
+    <img src="{{puppy.image}}" alt="">
+    <p>Type of animal: {{puppy.puppyType}}</p>
+    <p>Date of birth:  {{puppy.birthDate}}</p>
+    <p> Sex:  {{puppy.sex}}</p>
+    <p> Breed:  {{puppy.breed}}</p>
+    <p>Colour:  {{puppy.colour}}</p>
+    <p> Family options:  {{puppy.familyOptions}}</p>
 
-  <p>Comments:  {{puppy.comments}}</p>
- 
-<a href="/adopt/{{puppy._id}}/give-in-adoption/update">Do you want to change any information or delete the formulary?</a>
-    <br />
+
+    <p>Comments:  {{puppy.comments}}</p>
+  
+  <a href="/adopt/{{puppy._id}}/give-in-adoption/update">Do you want to change any information or delete the formulary?</a>
 </div>
 
 

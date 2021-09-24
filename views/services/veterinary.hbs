@@ -1,25 +1,25 @@
-
-<h2>Veterinary</h2>
-
 <div class="container-sm">
-   <div class="row gx-5 gy-5">
-      {{#each allVeterinaries}}
-         <div class="col-12 col-sm-4 col-md-3">
-            <img src="{{this.image}}" alt ="Veterinary photo">  
 
-            <p>Name: {{this.name}}</p>
-            <p>Address {{this.address}}</p>
-            <p>Contact: {{this.contact}}</p>
+   <h2>Veterinary</h2>
 
-            {{#compareIds this.user_id ../loggedInUserId}}
-               <a href="/puppy-care/{{this._id}}/partners-edition">Edit the service</a>
-            {{/compareIds}}
-         </div>
-      {{/each}}
-   </div>
+      <div class="row gx-5 gy-5">
+         {{#each allVeterinaries}}
+            <div class="col-12 col-sm-4 col-md-3">
+               <img src="{{this.image}}" alt ="Veterinary photo" class=".img-fluid" >  
+
+               <p>Name: {{this.name}}</p>
+               <p>Address {{this.address}}</p>
+               <p>Contact: {{this.contact}}</p>
+
+               {{#compareIds this.user_id ../loggedInUserId}}
+                  <a href="/puppy-care/{{this._id}}/partners-edition">Edit the service</a>
+               {{/compareIds}}
+            </div>
+         {{/each}}
+      </div>
 
 
- <p>Are you a veterinary? Do you want to join us? Click below and fill out the form. We'll love to have you with us!</p>
+   <p>Are you a veterinary? Do you want to join us? Click below and fill out the form. We'll love to have you with us!</p>
 
     <a href="partners-form">Be our partner!</a>
 

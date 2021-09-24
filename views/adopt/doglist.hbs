@@ -1,12 +1,12 @@
 
 
-<h2>Here are our lovely dogs </h2>
-
 <div class="container-sm">
+<h3>Here are our lovely dogs </h3>
+
   <div class="row gx-5 gy-5">
       {{#each allDogs}}
         <div class="col-12 col-sm-4 col-md-3">
-          <img src="{{this.image}}"  height="200" width ="200" alt="Dog photo"/>
+          <img src="{{this.image}}"  class="img"  alt="Dog photo"/>
 
           <p>Name: {{this.name}}</p>
           <p>Date of Birth {{this.birthDate}}</p>
@@ -17,13 +17,17 @@
 
           <p>Comments: {{this.comments}}</p>
 
-          <a href="/adopt/{{this._id}}/adoption-form">Adoption Form</a>
+          <a href="/adopt/{{this._id}}/adoption-form">Adoption Form</a> <br>
+         
+          {{#compareIds this.user_id ../loggedInUserId}}
+            <a href="/adopt/{{this._id}}/give-in-adoption/update">Do you want to change any information or delete the formulary?</a>
+          {{/compareIds}}
         </div>
       {{/each}}
     </div>
+<a href="/adopt">Back</a>
 </div>
 
-<a href="/adopt">Back</a>
 
 
 

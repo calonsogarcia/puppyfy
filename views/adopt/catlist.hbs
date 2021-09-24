@@ -1,29 +1,33 @@
 
 
-<h2>Here are our lovely cats </h2>
-
 <div class="container-sm">
-    <div class="row gx-5 gy-5">
-        {{#each allCats}}
-            <div class="col-12 col-sm-4 col-md-3">
-                <img src="{{this.image}}"  height="200" width ="200"  alt ="Cat photo">  
+    <h3>Here are our lovely cats </h3>
 
-                <p>Name: {{this.name}}</p>
-                <p>Date of Birth {{this.birthDate}}</p>
-                <p>Sex: {{this.sex}}</p>
-                <p>Breed: {{this.breed}}</p>
-                <p>Colour: {{this.colour}}</p>
-                <p>Family options: {{this.familyOptions}}</p>
+        <div class="row gx-5 gy-5">
+            {{#each allCats}}
+                <div class="col-12 col-sm-4 col-md-3">
+                    <img src="{{this.image}}"  class="img" alt ="Cat photo">  
 
-                <p>Comments: {{this.comments}}</p>
+                    <p>Name: {{this.name}}</p>
+                    <p>Date of Birth {{this.birthDate}}</p>
+                    <p>Sex: {{this.sex}}</p>
+                    <p>Breed: {{this.breed}}</p>
+                    <p>Colour: {{this.colour}}</p>
+                    <p>Family options: {{this.familyOptions}}</p>
 
-                <a href="/adopt/{{this._id}}/adoption-form">Adoption Form</a>
-            </div>
-        {{/each}}
-    </div>
+                    <p>Comments: {{this.comments}}</p>
+
+                    <a href="/adopt/{{this._id}}/adoption-form">Adoption Form</a>
+                    
+                    {{#compareIds this.user_id ../loggedInUserId}}
+                        <a href="/adopt/{{this._id}}/give-in-adoption/update">Do you want to change any information or delete the formulary?</a>
+                    {{/compareIds}}
+                </div>
+            {{/each}}
+        </div>
+    <a href="/adopt">Back</a>
 </div>
 
-<a href="/adopt">Back</a>
 
 
 
