@@ -97,7 +97,7 @@ router.post("/give-in-adoption", fileStorage.single('image'), (req, res, next) =
         user_id = req.session.loggedInUser._id;
     }
     if (!user_id) {
-        res.redirect(`/puppy-care/give-in-adopotion`);
+        res.redirect(`/puppy-care/give-in-adoption`);
         return;
     }
     const { puppyType, name, birthDate, sex, colour, breed, familyOptions, comments} = req.body;
@@ -130,9 +130,12 @@ router.get("/:puppyId/give-in-adoption/update", (req, res, next) => {
         .catch((err) => next(err))
 });
 
-router.post("/:puppyId/give-in-adoption/update", fileStorage.single('userImage'), (req, res, next) => {
+router.post("/:puppyId/give-in-adoption/update", fileStorage.single('image'), (req, res, next) => {
+    let image;
+    if(req.file){
+      image = req.file.path;
+    }
     const puppy_id = req.params.puppyId;
-    const image = req.file.path;
     const { puppyType, name, birthDate, sex, colour, breed, familyOptions, comments } = req.body;
     PuppyModel.findByIdAndUpdate( puppy_id, { puppyType, name, birthDate, sex, colour, breed, familyOptions, image, comments }, { new: true })
         .then((puppy) => {
