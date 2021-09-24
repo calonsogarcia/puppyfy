@@ -4,8 +4,8 @@
       <div class="d-flex justify-content-center">
         <form action="/adopt/{{puppy._id}}/give-in-adoption/update" method="post" enctype="multipart/form-data">
           <div class="form-row">
-            <label for="typeOfAnimal">Type of animal:</label>
-            <input type="text" name="typeOfAnimal" class="form-control" value="{{puppy.puppyType}}">
+            <label for="puppyType">Type of animal:</label>
+            <input type="text" name="puppyType" class="form-control" value="{{puppy.puppyType}}">
           </div>
           <div class="form-row">
             <label for="name">Name</label>
@@ -44,6 +44,7 @@
           </div>
         </form>
       </div>
+      
       <div class="d-flex justify-content-center">
           <form action="/adopt/{{puppy._id}}/give-in-adoption/delete" method="post">
             <button type="submit" class="btn btn-success">I don't want to give this pet in adoption anymore.</button>

@@ -146,6 +146,7 @@ router.post("/:puppyId/give-in-adoption/update", fileStorage.single('userImage')
 
 //DELETE A PUPPY
 router.post("/:puppyId/give-in-adoption/delete", (req, res, next) => {
+
     PuppyModel.findByIdAndDelete(req.params.puppyId)
         .then(() => {
             console.log("deleted puppy")
