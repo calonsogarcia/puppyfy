@@ -6,18 +6,24 @@
 
   <h4> {{puppy.name}}</h4>
 
-    <img src="{{puppy.image}}" alt="">
-    <p>Type of animal: {{puppy.puppyType}}</p>
-    <p>Date of birth:  {{puppy.birthDate}}</p>
-    <p> Sex:  {{puppy.sex}}</p>
-    <p> Breed:  {{puppy.breed}}</p>
-    <p>Colour:  {{puppy.colour}}</p>
-    <p> Family options:  {{puppy.familyOptions}}</p>
+  <div class="d-flex align-items-center">
+    <div class="flex-shrink-0">
+      <img src="{{puppy.image}}" alt="">
+    </div>
+    <div class="flex-grow-1 ms-3">
+      <p>Type of animal: {{puppy.puppyType}}</p>
+      <p>Date of birth:  {{puppy.birthDate}}</p>
+      <p> Sex:  {{puppy.sex}}</p>
+      <p> Breed:  {{puppy.breed}}</p>
+      <p>Colour:  {{puppy.colour}}</p>
+      <p> Family options:  {{puppy.familyOptions}}</p>
 
-
-    <p>Comments:  {{puppy.comments}}</p>
-  
+      <p>Comments:  {{puppy.comments}}</p>
+    </div>
+  </div>
   <a href="/adopt/{{puppy._id}}/give-in-adoption/update">Do you want to change any information or delete the formulary?</a>
 </div>
 
 
+  
+  
