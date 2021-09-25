@@ -5,9 +5,11 @@
   {{#if isLoggedUser}}
       <h3>Here is your profile information:</h3>
       
-      <div class="row gx-5 gy-5">
-        <img src="{{user.userImage}}" alt="Profile picture" class="img-fluid">
-        <div class="col-12 col-sm-4 col-md-3">
+      <div class="d-flex align-items-center">
+        <div class="flex-shrink-0">
+          <img src="{{user.userImage}}" alt="Profile picture" class="img-fluid">
+        </div>
+        <div class="flex-grow-1 ms-3">
           <p>Username: {{user.username}} </p>
 
           <p>Email: {{user.email}}</p>
