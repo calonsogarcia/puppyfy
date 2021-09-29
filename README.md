@@ -1,9 +1,9 @@
-PUPPYFY
+# PUPPYFY
 
-In 2020, up to 286.000 dogs and cats were abandoned. Many of them were picked up by the protectors, but they still can’t cope.
-Puppyfy is a community in which you will meet people with your concerns and will access to the best services and first-hand information about animals that need to be adopted
+In 2020, up to 286.000 dogs and cats were abandoned, to this number you have to sum the ones that aren't counted, like bunnies, turtles and so on. Many of them were rescued by the animal shelters, but they can't help all.
+Because of this matter is why Puppyfy was born. We wanted to build a community in which everyone, who wanted to adopt a puppy, was supported by others and where they can turn to if they need help to take care about the necessities of the animal. 
 
-**USER STORIES**
+## USER STORIES
 - **404** - As a user I want to see a nice 404 page when I go to a page that doesn’t exist so that I know it was my fault.
 - **500** - As a user I want to see a nice error page when the super team screws it up so that I know that is not my fault
 - **Sign-up** - As a user I want to see a welcome page that gives me the option to either log in as an existing user, or sign up with a new account.
@@ -23,7 +23,7 @@ Puppyfy is a community in which you will meet people with your concerns and will
 - **Logout** - As I user, when I am logged in, I want to be able to logout of my profile
 
 
-**API routes (back-end)**
+## API routes (back-end)
 - GET /
     - renders index.hbs
 
@@ -156,110 +156,114 @@ Puppyfy is a community in which you will meet people with your concerns and will
 - POST /puppy-care/:serviceId/partners-edition
    - redirects to /puppy-care/partners-form
 
-**MODELS**
-        User model: new Schema({
-                username: {
-                    type: String,
-                    unique: true,
-                    required: true
-                },
-                email: {
-                    type: String,
-                    unique: true,
-                    required: true
-                },
-                password: {
-                    type: String,
-                    required: true,
-                },
-                fullName: String,
-                dateOfBirth: Number,
-                sex: {
-                    type: String,
-                    enum: [“Female”, “Male”],
-                },
-                address: String,
-                phone: String,
-                job: String,
-                familyStructure: String,
-                userImage: {
-                    type: String,
-                    default: ‘https://png.pngtree.com/png-vector/20190909/ourmid/pngtree-outline-user-icon-png-image_1727916.jpg’
-                },
-                comments: String,
-            },
-            {
-                timestamps: true,
-            }
-        );
+## MODELS
+  ```
+  User model: new Schema({
+              username: {
+                  type: String,
+                  unique: true,
+                  required: true
+              },
+              email: {
+                  type: String,
+                  unique: true,
+                  required: true
+              },
+              password: {
+                  type: String,
+                  required: true,
+              },
+              fullName: String,
+              dateOfBirth: Number,
+              sex: {
+                  type: String,
+                  enum: [“Female”, “Male”],
+              },
+              address: String,
+              phone: String,
+              job: String,
+              familyStructure: String,
+              userImage: {
+                  type: String,
+                  default: ‘https://png.pngtree.com/png-vector/20190909/ourmid/pngtree-outline-user-icon-png-image_1727916.jpg’
+              },
+              comments: String,
+          },
+          {
+              timestamps: true,
+          }
+      );
+      
 
-Puppy model: new Schema({
-    user_id: {
-        type: Schema.Types.ObjectId,
-        ref: “User”,
-    },
-    puppyType: {
-        type: String,
-        required: true,
-        enum: [“Dog”, “Cat”, “Other”],
-    },
-    name: String,
-    birthDate: String,
-    sex: {
-        type: String,
-        required: true,
-        enum: [“Female”, “Male”],
-    },
-    breed: String,
-    colour: String,
-    familyOptions: String,
-    image: {
-        type: String,
-        default: ‘https://png.pngtree.com/png-vector/20190909/ourmid/pngtree-outline-user-icon-png-image_1727916.jpg’
-    },
-    comments: String,
-}, {
-    timestamps: true,
-});
+  Puppy model: new Schema({
+      user_id: {
+          type: Schema.Types.ObjectId,
+          ref: “User”,
+      },
+      puppyType: {
+          type: String,
+          required: true,
+          enum: [“Dog”, “Cat”, “Other”],
+      },
+      name: String,
+      birthDate: String,
+      sex: {
+          type: String,
+          required: true,
+          enum: [“Female”, “Male”],
+      },
+      breed: String,
+      colour: String,
+      familyOptions: String,
+      image: {
+          type: String,
+          default: ‘https://png.pngtree.com/png-vector/20190909/ourmid/pngtree-outline-user-icon-png-image_1727916.jpg’
+      },
+      comments: String,
+  }, {
+      timestamps: true,
+  });
+  
 
-Service model: new Schema ({
-        serviceType: {
-            type: String,
-            required: true,
-            enum: [‘PuppySitter’, ‘Hairdresser’, “PuppyTrainer”, “Veterinary”],
-        },
-        user_id: {
-            type: Schema.Types.ObjectId,
-            ref: “User”,
-        },
-        name: String,
-        address: String,
-        contact: String,
-        image: {
-            type: String,
-            default: ‘https://png.pngtree.com/png-vector/20190909/ourmid/pngtree-outline-user-icon-png-image_1727916.jpg’
-        }
-    },
-    {
-        timestamps: true,
-    }
-);
-
-Adoption model  new Schema({
-    user_id: {
-        type: Schema.Types.ObjectId,
-        ref: “User”,
-    },
-    puppy_id: {
-        type: Schema.Types.ObjectId,
-        ref: “Puppy”,
-    },
-}, {
-    timestamps: true,
-});
+  Service model: new Schema ({
+          serviceType: {
+              type: String,
+              required: true,
+              enum: [‘PuppySitter’, ‘Hairdresser’, “PuppyTrainer”, “Veterinary”],
+          },
+          user_id: {
+              type: Schema.Types.ObjectId,
+              ref: “User”,
+          },
+          name: String,
+          address: String,
+          contact: String,
+          image: {
+              type: String,
+              default: ‘https://png.pngtree.com/png-vector/20190909/ourmid/pngtree-outline-user-icon-png-image_1727916.jpg’
+          }
+      },
+      {
+          timestamps: true,
+      }
+  );
 
 
-**BACKLOG**
+  Adoption model: new Schema({
+      user_id: {
+          type: Schema.Types.ObjectId,
+          ref: “User”,
+      },
+      puppy_id: {
+          type: Schema.Types.ObjectId,
+          ref: “Puppy”,
+      },
+  }, {
+      timestamps: true,
+  });
+  ```
+
+## BACKLOG
 
 List of other features outside of the MVPs scope:
 
@@ -271,7 +275,7 @@ List of other features outside of the MVPs scope:
 
 
 
-**LINKS**
+## LINKS
 
 - [Repository](https://github.com/calonsogarcia/puppyfy.git) 
   
