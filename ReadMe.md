@@ -24,8 +24,9 @@ Puppyfy is a community in which you will meet people with your concerns and will
 
 
 **API routes (back-end)**
-GET /
+```GET /
     renders index.hbs
+```
 
 GET /home
     renders home.hbs
