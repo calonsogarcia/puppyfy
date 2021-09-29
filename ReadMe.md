@@ -257,7 +257,7 @@ Adoption model  new Schema({
 });
 
 **BACKLOG**
-List of other features outside of the MVPs scope
+List of other features outside of the MVPs scope:
 Geolocation fore puppy-care services and veterinaries when showing the list of them and their respective maps.
 Profile
 Show inside the profile of the user the list of puppies adopted and services
@@ -266,78 +266,70 @@ fit images to show them with the same size
 ...
 
 
-**LINKS**
-- [Repository](https://github.com/calonsogarcia/puppyfy.git)
-- [Deploy](https://puppyfy-lovers.herokuapp.com)
-- [Prework slides](https://docs.google.com/presentation/d/1i8V07ejXQkYsXlFxvF4lmfWR2QwiZxJySqrv5EzJQhU/edit?usp=sharing)
-- [Presentation slides](https://docs.google.com/presentation/d/1JfHtWnKB3mvnpeHKJlfWQdFs6rCyH4wiHI6L_kvLLX4/edit?usp=sharing)
-
-
 
 Puppy new Schema({
-    user_id: {
-        type: Schema.Types.ObjectId,
-        ref: "User",
-    },
-    puppyType: {
-        type: String,
-        required: true,
-        enum: ["Dog", "Cat", "Other"],
-    },
-    name: String,
-    birthDate: String,
-    sex: {
-        type: String,
-        required: true,
-        enum: ["Female", "Male"],
-    },
-    breed: String,
-    colour: String,
-    familyOptions: String,
-    image: {
-        type: String,
-        default: 'https://png.pngtree.com/png-vector/20190909/ourmid/pngtree-outline-user-icon-png-image_1727916.jpg'
-    },
-    comments: String,
-}, {
-    timestamps: true,
-});
-
-Service new Schema ({
-        serviceType: {
-            type: String,
-            required: true,
-            enum: ['PuppySitter', 'Hairdresser', "PuppyTrainer", "Veterinary"],
-        },
         user_id: {
             type: Schema.Types.ObjectId,
             ref: "User",
         },
+        puppyType: {
+            type: String,
+            required: true,
+            enum: ["Dog", "Cat", "Other"],
+        },
         name: String,
-        address: String,
-        contact: String,
+        birthDate: String,
+        sex: {
+            type: String,
+            required: true,
+            enum: ["Female", "Male"],
+        },
+        breed: String,
+        colour: String,
+        familyOptions: String,
         image: {
             type: String,
             default: 'https://png.pngtree.com/png-vector/20190909/ourmid/pngtree-outline-user-icon-png-image_1727916.jpg'
-        }
-    },
-    {
+        },
+        comments: String,
+    }, {
         timestamps: true,
-    }
-);
+    });
+
+Service new Schema ({
+      serviceType: {
+          type: String,
+          required: true,
+          enum: ['PuppySitter', 'Hairdresser', "PuppyTrainer", "Veterinary"],
+      },
+      user_id: {
+          type: Schema.Types.ObjectId,
+          ref: "User",
+      },
+      name: String,
+      address: String,
+      contact: String,
+      image: {
+          type: String,
+          default: 'https://png.pngtree.com/png-vector/20190909/ourmid/pngtree-outline-user-icon-png-image_1727916.jpg'
+      }},
+      {
+      timestamps: true,
+      }
+      );
 
 Adoption model  new Schema({
-    user_id: {
-        type: Schema.Types.ObjectId,
-        ref: "User",
-    },
-    puppy_id: {
-        type: Schema.Types.ObjectId,
-        ref: "Puppy",
-    },
-}, {
-    timestamps: true,
-});
+        user_id: {
+            type: Schema.Types.ObjectId,
+            ref: "User",
+        },
+        puppy_id: {
+            type: Schema.Types.ObjectId,
+            ref: "Puppy",
+        },
+    }, {
+        timestamps: true,
+    });
 
 **BACKLOG**
 
