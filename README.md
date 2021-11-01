@@ -27,7 +27,6 @@ Because of this matter is why Puppyfy was born. We wanted to build a community i
 - GET /
     - renders index.hbs
 
-
 - GET /home
     - renders home.hbs
 
@@ -57,7 +56,7 @@ Because of this matter is why Puppyfy was born. We wanted to build a community i
    - renders profile/profile.hbs
 
 - POST /profile/:userId/profile-edition
-   - redirects to (if user is logged in) /profile/profile-edition.hbs
+   - redirects to /profile/profile-edition.hbs
        - body:
           -  Profile photo
           -  Username
@@ -89,7 +88,7 @@ Because of this matter is why Puppyfy was born. We wanted to build a community i
 - GET /adopt/:puppyId/adoption-form
    - renders adopt/adoption-form.hbs
 
-- POST /adopt/:puppyId/adoption-form
+- POST /adopt/:puppyId/adoption-form (only if user is logged-in)
    - redirects to adopt/:puupyId/adoption-print
        - body:
            - Name
@@ -108,10 +107,9 @@ Because of this matter is why Puppyfy was born. We wanted to build a community i
 - GET /adopt/give-in-adoption
    - renders adopt/give-form.hbs
 
-- POST/adopt/give-in-adoption
-   - (if user is not logged in)redirects to adopt/puppy-care/give-in-adoption
-   - (if user is logged-in)
-   - redirects to /adopt/:puppyId/give-in-adoption/print
+- POST /adopt/give-in-adoption
+   - (if user is not logged in) redirects to adopt/puppy-care/give-in-adoption
+   - (if user is logged-in) redirects to /adopt/:puppyId/give-in-adoption/print
 
 - GET /adopt/:puppyId/give-in-adoption/print
    - renders adopt/give-print.hbs
@@ -140,9 +138,9 @@ Because of this matter is why Puppyfy was born. We wanted to build a community i
 - GET /puppy-care/partners-form
    - renders /services/partners-form.hbs
 
-- POST  /puppy-care/partners-form
-   - redirects (if user is logged in) to /home
-   - redirects (if user is not logged in) to /puppy-care/partners-form
+- POST /puppy-care/partners-form
+   - redirects (if user is not logged in) to /home
+   - redirects (if user is logged in) to /puppy-care/partners-form
    - body:
        - Name
        - ServiceType
