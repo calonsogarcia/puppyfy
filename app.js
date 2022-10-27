@@ -13,7 +13,7 @@ const express = require("express");
 // https://www.npmjs.com/package/hbs
 const hbs = require("hbs");
 // Require handlebars and just-handlebars-helpers
-const H = require('just-handlebars-helpers');
+//const H = require('just-handlebars-helpers');
 
 const app = express();
 
@@ -27,7 +27,7 @@ const capitalized = (string) => string[0].toUpperCase() + string.slice(1).toLowe
 app.locals.title = `${capitalized(projectName)} created with IronLauncher`;
 
 // Register just-handlebars-helpers with handlebars
-H.registerHelpers(hbs);
+//H.registerHelpers(hbs);
 
 hbs.registerHelper('compareIds', function(lvalue, rvalue, options) {
   if (arguments.length < 3) {
